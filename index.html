@@ -1,175 +1,829 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ayush Gusain | HR & Compliance Professional</title>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
+<title>Ayush Gusain — HR & Compliance Professional</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-body{font-family:Segoe UI,Tahoma,sans-serif;background:#f5f7fb;color:#1f2937}
-.hero{background:linear-gradient(135deg,#0f172a,#1e3a8a);color:#fff;padding:120px 0}
-.section{padding:80px 0}
-.cardx{background:#fff;border-radius:18px;padding:25px;box-shadow:0 10px 30px rgba(0,0,0,.08);height:100%}
-.badge-skill{background:#e8eefc;color:#1e3a8a;padding:10px 15px;border-radius:30px;margin:5px;display:inline-block}
-.timeline{border-left:4px solid #f59e0b;padding-left:30px}
-.item{margin-bottom:40px}
-.stat{font-size:42px;font-weight:bold;color:#f59e0b}
-.footer{background:#0f172a;color:#fff;padding:25px}
-h2{font-weight:700;margin-bottom:30px}
+  :root[data-theme="dark"] {
+    --bg: #0a0a0f;
+    --bg2: #111118;
+    --bg3: #1a1a26;
+    --border: rgba(255,255,255,0.07);
+    --text: #f0f0f8;
+    --text2: #9090b0;
+    --text3: #5a5a7a;
+    --accent: #7c6af5;
+    --accent2: #a78bfa;
+    --accent3: #c4b5fd;
+    --gold: #f4c87a;
+    --teal: #5eead4;
+    --glow: rgba(124,106,245,0.15);
+    --card: #13131e;
+    --card-border: rgba(124,106,245,0.15);
+  }
+  :root[data-theme="light"] {
+    --bg: #f7f7fc;
+    --bg2: #ffffff;
+    --bg3: #ededf8;
+    --border: rgba(0,0,0,0.07);
+    --text: #0f0f1a;
+    --text2: #4a4a6a;
+    --text3: #9090b0;
+    --accent: #5b4de0;
+    --accent2: #7c6af5;
+    --accent3: #9f8bfa;
+    --gold: #c8922a;
+    --teal: #0d9488;
+    --glow: rgba(91,77,224,0.08);
+    --card: #ffffff;
+    --card-border: rgba(91,77,224,0.12);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    transition: background 0.4s, color 0.4s;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.2rem 5%;
+    background: rgba(10,10,15,0.75);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
+    transition: background 0.4s;
+  }
+  [data-theme="light"] nav { background: rgba(247,247,252,0.8); }
+
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, var(--accent2), var(--teal));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .nav-links { display: flex; gap: 2rem; align-items: center; }
+  .nav-links a {
+    color: var(--text2); text-decoration: none; font-size: 0.85rem;
+    font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--accent2); }
+
+  .theme-toggle {
+    background: var(--bg3); border: 1px solid var(--border);
+    border-radius: 50px; padding: 0.4rem 0.8rem;
+    cursor: pointer; display: flex; align-items: center; gap: 0.4rem;
+    color: var(--text2); font-size: 0.8rem; transition: all 0.3s;
+  }
+  .theme-toggle:hover { border-color: var(--accent); color: var(--accent2); }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: flex; align-items: center;
+    padding: 8rem 5% 5rem;
+    position: relative; overflow: hidden;
+  }
+  .hero-orb {
+    position: absolute; border-radius: 50%;
+    filter: blur(80px); pointer-events: none;
+  }
+  .orb1 { width: 500px; height: 500px; background: rgba(124,106,245,0.12); top: -100px; right: -100px; }
+  .orb2 { width: 300px; height: 300px; background: rgba(94,234,212,0.07); bottom: 0; left: -50px; }
+
+  .hero-content { position: relative; z-index: 1; max-width: 750px; }
+
+  .hero-eyebrow {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem; color: var(--teal);
+    letter-spacing: 0.12em; text-transform: uppercase;
+    margin-bottom: 1.5rem;
+  }
+  .hero-eyebrow::before {
+    content: ''; display: block; width: 2rem; height: 1px;
+    background: var(--teal);
+  }
+
+  .hero-name {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(3rem, 7vw, 6rem);
+    font-weight: 900;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    margin-bottom: 0.5rem;
+  }
+  .hero-name span {
+    background: linear-gradient(135deg, var(--accent2) 0%, var(--teal) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hero-title {
+    font-size: 1.1rem; color: var(--gold);
+    font-weight: 500; margin-bottom: 1.5rem;
+    letter-spacing: 0.02em;
+  }
+
+  .hero-desc {
+    font-size: 1rem; color: var(--text2);
+    max-width: 560px; line-height: 1.8;
+    margin-bottom: 2.5rem;
+  }
+
+  .hero-stats {
+    display: flex; gap: 3rem; margin-bottom: 2.5rem;
+  }
+  .stat-item { }
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem; font-weight: 700;
+    color: var(--accent2); line-height: 1;
+  }
+  .stat-label {
+    font-size: 0.75rem; color: var(--text3);
+    text-transform: uppercase; letter-spacing: 0.08em;
+    margin-top: 0.25rem;
+  }
+
+  .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .btn-primary {
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    color: #fff; padding: 0.8rem 2rem; border-radius: 6px;
+    text-decoration: none; font-weight: 600; font-size: 0.9rem;
+    transition: all 0.3s; border: none; cursor: pointer;
+    box-shadow: 0 4px 20px rgba(124,106,245,0.3);
+  }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(124,106,245,0.4); }
+  .btn-ghost {
+    background: transparent; color: var(--text);
+    padding: 0.8rem 2rem; border-radius: 6px;
+    text-decoration: none; font-weight: 500; font-size: 0.9rem;
+    border: 1px solid var(--border); transition: all 0.3s;
+  }
+  .btn-ghost:hover { border-color: var(--accent); color: var(--accent2); }
+
+  /* ── SECTION COMMON ── */
+  section { padding: 6rem 5%; }
+
+  .section-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem; color: var(--accent2);
+    letter-spacing: 0.15em; text-transform: uppercase;
+    margin-bottom: 0.75rem;
+    display: flex; align-items: center; gap: 0.75rem;
+  }
+  .section-label::after {
+    content: ''; flex: 1; max-width: 3rem; height: 1px;
+    background: var(--accent);
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+    font-weight: 700; line-height: 1.2;
+    margin-bottom: 1rem;
+  }
+
+  .section-sub {
+    color: var(--text2); font-size: 0.95rem;
+    max-width: 520px; line-height: 1.7;
+    margin-bottom: 3rem;
+  }
+
+  /* ── DIVIDER ── */
+  .divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--border), transparent);
+    margin: 0 5%;
+  }
+
+  /* ── ABOUT ── */
+  .about-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 4rem; align-items: start;
+  }
+  .about-text p {
+    color: var(--text2); line-height: 1.85;
+    margin-bottom: 1.2rem; font-size: 0.95rem;
+  }
+  .about-text p strong { color: var(--text); }
+
+  .about-details { display: flex; flex-direction: column; gap: 1rem; }
+  .detail-row {
+    display: flex; align-items: center; gap: 1rem;
+    padding: 0.9rem 1.2rem;
+    background: var(--card); border: 1px solid var(--card-border);
+    border-radius: 8px;
+  }
+  .detail-icon { font-size: 1.1rem; width: 1.5rem; text-align: center; }
+  .detail-label { font-size: 0.7rem; color: var(--text3); text-transform: uppercase; letter-spacing: 0.08em; }
+  .detail-val { font-size: 0.9rem; color: var(--text); font-weight: 500; margin-top: 0.1rem; }
+
+  /* ── EXPERIENCE ── */
+  .exp-bg { background: var(--bg2); }
+
+  .timeline { display: flex; flex-direction: column; gap: 0; }
+
+  .timeline-item {
+    display: grid; grid-template-columns: 180px 1fr;
+    gap: 2rem; position: relative; padding-bottom: 3rem;
+  }
+  .timeline-item:last-child { padding-bottom: 0; }
+
+  .timeline-item::before {
+    content: '';
+    position: absolute;
+    left: 179px;
+    top: 0.6rem;
+    bottom: 0;
+    width: 1px;
+    background: linear-gradient(180deg, var(--accent), transparent);
+  }
+  .timeline-item:last-child::before { display: none; }
+
+  .tl-date {
+    text-align: right;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem; color: var(--teal);
+    letter-spacing: 0.04em; padding-top: 0.1rem;
+    line-height: 1.5;
+  }
+
+  .tl-dot {
+    position: absolute; left: 172px; top: 0.3rem;
+    width: 14px; height: 14px; border-radius: 50%;
+    background: var(--accent); border: 3px solid var(--bg2);
+    box-shadow: 0 0 12px var(--accent);
+  }
+
+  .tl-body {
+    background: var(--card); border: 1px solid var(--card-border);
+    border-radius: 12px; padding: 1.5rem 1.8rem;
+    position: relative;
+  }
+  .tl-body::before {
+    content: '';
+    position: absolute; left: -8px; top: 1rem;
+    width: 0; height: 0;
+    border-top: 7px solid transparent;
+    border-bottom: 7px solid transparent;
+    border-right: 8px solid var(--card-border);
+  }
+
+  .tl-company {
+    font-size: 0.7rem; color: var(--gold);
+    text-transform: uppercase; letter-spacing: 0.1em;
+    font-weight: 600; margin-bottom: 0.3rem;
+  }
+  .tl-role {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem; font-weight: 700;
+    margin-bottom: 0.6rem;
+  }
+  .tl-location {
+    font-size: 0.75rem; color: var(--text3);
+    margin-bottom: 1rem; display: flex; align-items: center; gap: 0.3rem;
+  }
+  .tl-desc {
+    color: var(--text2); font-size: 0.88rem; line-height: 1.8;
+  }
+  .tl-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1rem; }
+  .tag {
+    font-size: 0.7rem; padding: 0.25rem 0.75rem;
+    background: var(--glow); color: var(--accent3);
+    border: 1px solid var(--card-border); border-radius: 50px;
+    font-weight: 500; letter-spacing: 0.03em;
+  }
+  .tag.teal { color: var(--teal); background: rgba(94,234,212,0.07); border-color: rgba(94,234,212,0.2); }
+  .tag.gold { color: var(--gold); background: rgba(244,200,122,0.07); border-color: rgba(244,200,122,0.2); }
+
+  /* ── SKILLS ── */
+  .skills-grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1.2rem;
+  }
+  .skill-card {
+    background: var(--card); border: 1px solid var(--card-border);
+    border-radius: 12px; padding: 1.5rem;
+    transition: all 0.3s; position: relative; overflow: hidden;
+  }
+  .skill-card::before {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(135deg, var(--glow), transparent);
+    opacity: 0; transition: opacity 0.3s;
+  }
+  .skill-card:hover { transform: translateY(-4px); border-color: var(--accent); }
+  .skill-card:hover::before { opacity: 1; }
+
+  .skill-icon { font-size: 1.8rem; margin-bottom: 0.8rem; }
+  .skill-name { font-weight: 600; font-size: 0.95rem; margin-bottom: 0.4rem; }
+  .skill-desc { font-size: 0.8rem; color: var(--text3); line-height: 1.5; }
+
+  .skill-bar { height: 3px; background: var(--bg3); border-radius: 50px; margin-top: 1rem; overflow: hidden; }
+  .skill-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--accent), var(--teal));
+    border-radius: 50px;
+    transition: width 1.2s ease;
+  }
+
+  /* ── COMPLIANCE EXPERTISE ── */
+  .compliance-bg { background: var(--bg2); }
+
+  .compliance-grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem;
+  }
+  .compliance-pill {
+    display: flex; align-items: center; gap: 0.75rem;
+    padding: 1rem 1.2rem;
+    background: var(--card); border: 1px solid var(--card-border);
+    border-radius: 10px; font-size: 0.85rem; font-weight: 500;
+    transition: all 0.25s;
+    cursor: default;
+  }
+  .compliance-pill:hover {
+    border-color: var(--accent);
+    background: var(--glow);
+    transform: translateY(-2px);
+  }
+  .pill-dot {
+    width: 8px; height: 8px; border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  /* ── EDUCATION ── */
+  .edu-card {
+    background: var(--card); border: 1px solid var(--card-border);
+    border-radius: 14px; padding: 2rem 2.5rem;
+    display: flex; align-items: center; gap: 2rem;
+    max-width: 600px;
+    transition: border-color 0.3s;
+  }
+  .edu-card:hover { border-color: var(--accent); }
+  .edu-icon {
+    width: 64px; height: 64px; border-radius: 14px;
+    background: linear-gradient(135deg, var(--accent), var(--teal));
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.8rem; flex-shrink: 0;
+  }
+  .edu-degree { font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 700; margin-bottom: 0.3rem; }
+  .edu-inst { color: var(--gold); font-size: 0.85rem; font-weight: 600; margin-bottom: 0.3rem; }
+  .edu-meta { font-size: 0.78rem; color: var(--text3); }
+  .edu-status {
+    display: inline-flex; align-items: center; gap: 0.4rem;
+    font-size: 0.7rem; color: var(--teal);
+    background: rgba(94,234,212,0.1); border: 1px solid rgba(94,234,212,0.25);
+    padding: 0.2rem 0.6rem; border-radius: 50px;
+    margin-top: 0.5rem;
+  }
+  .status-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--teal); animation: pulse 2s infinite; }
+  @keyframes pulse { 0%,100%{opacity:1}50%{opacity:0.4} }
+
+  /* ── INTERESTS ── */
+  .interests-row { display: flex; flex-wrap: wrap; gap: 1rem; }
+  .interest-chip {
+    display: flex; align-items: center; gap: 0.6rem;
+    padding: 0.7rem 1.2rem;
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 50px; font-size: 0.85rem; font-weight: 500;
+    transition: all 0.25s;
+  }
+  .interest-chip:hover { border-color: var(--accent2); transform: scale(1.04); }
+
+  /* ── CONTACT ── */
+  .contact-bg { background: var(--bg2); }
+
+  .contact-wrapper {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 4rem; align-items: start;
+  }
+  .contact-info { display: flex; flex-direction: column; gap: 1rem; }
+  .contact-row {
+    display: flex; align-items: center; gap: 1rem;
+    padding: 1rem 1.4rem;
+    background: var(--card); border: 1px solid var(--card-border);
+    border-radius: 10px; text-decoration: none;
+    color: var(--text); transition: all 0.25s;
+  }
+  .contact-row:hover { border-color: var(--accent); transform: translateX(4px); }
+  .c-icon { font-size: 1.2rem; }
+  .c-label { font-size: 0.7rem; color: var(--text3); text-transform: uppercase; letter-spacing: 0.08em; }
+  .c-val { font-size: 0.9rem; font-weight: 500; margin-top: 0.15rem; }
+
+  .contact-cta {
+    background: linear-gradient(135deg, rgba(124,106,245,0.1), rgba(94,234,212,0.05));
+    border: 1px solid var(--card-border); border-radius: 16px;
+    padding: 2.5rem; text-align: center;
+  }
+  .cta-headline {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem; font-weight: 700; margin-bottom: 0.8rem;
+  }
+  .cta-sub { color: var(--text2); font-size: 0.9rem; line-height: 1.7; margin-bottom: 1.5rem; }
+
+  /* ── FOOTER ── */
+  footer {
+    text-align: center; padding: 2.5rem 5%;
+    border-top: 1px solid var(--border);
+    color: var(--text3); font-size: 0.8rem;
+  }
+  footer span { color: var(--accent2); }
+
+  /* ── SCROLL ANIMATIONS ── */
+  .fade-up { opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  .fade-up.visible { opacity: 1; transform: none; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 768px) {
+    nav { padding: 1rem 4%; }
+    .nav-links { display: none; }
+    .hero { padding: 6rem 4% 4rem; }
+    .hero-stats { gap: 1.5rem; }
+    .about-grid, .contact-wrapper { grid-template-columns: 1fr; gap: 2rem; }
+    .timeline-item { grid-template-columns: 1fr; }
+    .tl-date { text-align: left; }
+    .timeline-item::before { display: none; }
+    .tl-dot { display: none; }
+    section { padding: 4rem 4%; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .fade-up { transition: none; opacity: 1; transform: none; }
+  }
 </style>
 </head>
 <body>
 
-<section class="hero text-center">
-<div class="container">
-<h1 class="display-3 fw-bold">Ayush Gusain</h1>
-<h3>HR & Compliance Professional</h3>
-<p class="lead mt-3">
-Payroll • Labour Law Compliance • HR Operations • Statutory Audits • Employee Lifecycle Management
-</p>
-</div>
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">AG</div>
+  <div class="nav-links">
+    <a href="#about">About</a>
+    <a href="#experience">Experience</a>
+    <a href="#skills">Skills</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <button class="theme-toggle" onclick="toggleTheme()">
+    <span id="theme-icon">☀️</span>
+    <span id="theme-label">Light</span>
+  </button>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-orb orb1"></div>
+  <div class="hero-orb orb2"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">HR & Compliance Professional</div>
+    <h1 class="hero-name">Ayush<br><span>Gusain</span></h1>
+    <div class="hero-title">Statutory Compliance · Payroll · HR Operations</div>
+    <p class="hero-desc">
+      Results-oriented professional with 2+ years bridging the gap between business operations and legal compliance — from PF & ESI to Labour Welfare Fund, I ensure organisations stay audit-ready.
+    </p>
+    <div class="hero-stats">
+      <div class="stat-item">
+        <div class="stat-num">2+</div>
+        <div class="stat-label">Years Experience</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">3</div>
+        <div class="stat-label">Companies</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">10+</div>
+        <div class="stat-label">Acts Handled</div>
+      </div>
+    </div>
+    <div class="hero-btns">
+      <a href="#contact" class="btn-primary">Get in Touch</a>
+      <a href="#experience" class="btn-ghost">View Journey</a>
+    </div>
+  </div>
 </section>
 
-<section class="section">
-<div class="container">
-<h2>Professional Summary</h2>
-<div class="cardx">
-<p>
-Results-oriented HR & Compliance professional with 2+ years of experience in payroll management,
-statutory compliance, onboarding, employee documentation, labour law adherence, and HR operations.
-Currently supporting compliance operations for Air India Express through Talent Traverse HR Tech,
-ensuring timely statutory submissions, audit readiness, and regulatory compliance.
-</p>
-</div>
-</div>
+<div class="divider"></div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-label">Who I Am</div>
+  <h2 class="section-title">Compliance isn't paperwork.<br>It's protection.</h2>
+  <div class="about-grid">
+    <div class="about-text fade-up">
+      <p>I'm a <strong>HR & Compliance professional</strong> based in Ludhiana, Punjab, currently working as a Compliance Executive (Implant) at Air India Express through Talent Traverse HR Tech Pvt. Ltd. in Gurgaon.</p>
+      <p>My work sits at the intersection of <strong>labour law</strong> and <strong>operational HR</strong> — I make statutory compliance seamless, whether that's handling PF allotments, preparing LWF submissions, or maintaining registers that hold up under audit scrutiny.</p>
+      <p>I believe good compliance culture starts with clear processes, accurate documentation, and a team that understands the "why" behind every regulatory requirement.</p>
+    </div>
+    <div class="about-details fade-up">
+      <div class="detail-row">
+        <div class="detail-icon">📍</div>
+        <div>
+          <div class="detail-label">Location</div>
+          <div class="detail-val">Ludhiana, Punjab — 141001</div>
+        </div>
+      </div>
+      <div class="detail-row">
+        <div class="detail-icon">📞</div>
+        <div>
+          <div class="detail-label">Phone</div>
+          <div class="detail-val">+91 87250-14901</div>
+        </div>
+      </div>
+      <div class="detail-row">
+        <div class="detail-icon">✉️</div>
+        <div>
+          <div class="detail-label">Email</div>
+          <div class="detail-val">gusainayush978@gmail.com</div>
+        </div>
+      </div>
+      <div class="detail-row">
+        <div class="detail-icon">🎓</div>
+        <div>
+          <div class="detail-label">Education</div>
+          <div class="detail-val">B.Com — LPU Distance (Pursuing)</div>
+        </div>
+      </div>
+      <div class="detail-row">
+        <div class="detail-icon">⚡</div>
+        <div>
+          <div class="detail-label">Current Role</div>
+          <div class="detail-val">Compliance Executive @ Air India Express</div>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
-<section class="section bg-light">
-<div class="container">
-<div class="row text-center">
-<div class="col-md-3"><div class="cardx"><div class="stat">2+</div><p>Years Experience</p></div></div>
-<div class="col-md-3"><div class="cardx"><div class="stat">100%</div><p>Compliance Focus</p></div></div>
-<div class="col-md-3"><div class="cardx"><div class="stat">3</div><p>Organizations</p></div></div>
-<div class="col-md-3"><div class="cardx"><div class="stat">8+</div><p>Compliance Areas</p></div></div>
-</div>
-</div>
+<div class="divider"></div>
+
+<!-- EXPERIENCE -->
+<section id="experience" class="exp-bg">
+  <div class="section-label">Career Journey</div>
+  <h2 class="section-title">Where I've Made<br>an Impact</h2>
+  <p class="section-sub">Three progressive roles across manufacturing and aviation sectors, each expanding my compliance and HR expertise.</p>
+
+  <div class="timeline">
+
+    <!-- Job 3 -->
+    <div class="timeline-item fade-up">
+      <div class="tl-date">Mar 2025<br>— Present</div>
+      <div class="tl-dot"></div>
+      <div class="tl-body">
+        <div class="tl-company">Talent Traverse HR Tech Pvt. Ltd. · Gurgaon, Haryana</div>
+        <div class="tl-role">Compliance Executive</div>
+        <div class="tl-location">📍 Implant at Air India Express (AIXL)</div>
+        <p class="tl-desc">Serve as the primary compliance bridge between Air India Express and Talent Traverse, managing end-to-end statutory obligations. Responsible for timely preparation, submission, and record-keeping of LWF, Professional Tax, and all applicable labour law compliances. Coordinate with internal HR and Finance teams to ensure seamless audit readiness and legal conformity across the board.</p>
+        <div class="tl-tags">
+          <span class="tag teal">LWF</span>
+          <span class="tag teal">Professional Tax</span>
+          <span class="tag teal">Labour Law</span>
+          <span class="tag">Audit Support</span>
+          <span class="tag">Statutory Records</span>
+          <span class="tag gold">Air India Express</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Job 2 -->
+    <div class="timeline-item fade-up">
+      <div class="tl-date">Mar 2024<br>— Feb 2025</div>
+      <div class="tl-dot"></div>
+      <div class="tl-body">
+        <div class="tl-company">Ciarr Industries Private Limited · Ludhiana, Punjab</div>
+        <div class="tl-role">Human Resources Executive</div>
+        <div class="tl-location">📍 Ludhiana, Punjab</div>
+        <p class="tl-desc">Managed complete employee lifecycle from documentation and onboarding to payroll processing and salary disbursement. Handled ESI and PF cases including number allotment and statutory compliance. Took ownership of HR administrative tasks, driving operational efficiency across workforce management functions.</p>
+        <div class="tl-tags">
+          <span class="tag">Payroll Processing</span>
+          <span class="tag">ESI & PF</span>
+          <span class="tag">Onboarding</span>
+          <span class="tag teal">Salary Disbursement</span>
+          <span class="tag">Documentation</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Job 1 -->
+    <div class="timeline-item fade-up">
+      <div class="tl-date">Mar 2023<br>— Mar 2024</div>
+      <div class="tl-dot"></div>
+      <div class="tl-body">
+        <div class="tl-company">Kansal Hosiery Exports · Ludhiana, Punjab</div>
+        <div class="tl-role">Human Resources Assistant</div>
+        <div class="tl-location">📍 Ludhiana, Punjab</div>
+        <p class="tl-desc">Handled employee joining formalities and full onboarding documentation. Managed ESI and PF registrations ensuring timely statutory number allotment. Maintained confidential employee records and compliance registers, contributing to smooth HR operations and adherence to labour laws and company policies.</p>
+        <div class="tl-tags">
+          <span class="tag">Joining Formalities</span>
+          <span class="tag">ESI Registration</span>
+          <span class="tag">PF Registration</span>
+          <span class="tag teal">Compliance Registers</span>
+          <span class="tag">Employee Records</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
 </section>
 
-<section class="section">
-<div class="container">
-<h2>Professional Experience</h2>
-<div class="timeline">
+<div class="divider"></div>
 
-<div class="item">
-<h4>Compliance Executive</h4>
-<h6>Talent Traverse HR Tech (Implant at Air India Express)</h6>
-<p>March 2025 – Present</p>
-<ul>
-<li>Manage Labour Welfare Fund (LWF), Professional Tax (PT) and labour law compliance activities.</li>
-<li>Maintain statutory records and compliance documentation.</li>
-<li>Support audits and regulatory inspections.</li>
-<li>Coordinate between Air India Express and Talent Traverse teams.</li>
-<li>Ensure timely compliance reporting and submissions.</li>
-</ul>
-</div>
+<!-- COMPLIANCE EXPERTISE -->
+<section class="compliance-bg" id="compliance">
+  <div class="section-label">Domain Expertise</div>
+  <h2 class="section-title">Statutory Acts &<br>Compliance Areas</h2>
+  <p class="section-sub">Hands-on experience across the key labour law frameworks that govern Indian workplaces.</p>
 
-<div class="item">
-<h4>Human Resources Executive</h4>
-<h6>Ciarr Industries Private Limited</h6>
-<p>March 2024 – February 2025</p>
-<ul>
-<li>Payroll processing and salary disbursement.</li>
-<li>Employee onboarding and documentation.</li>
-<li>ESI and PF compliance management.</li>
-<li>HR administration and workforce support.</li>
-</ul>
-</div>
-
-<div class="item">
-<h4>Human Resources Assistant</h4>
-<h6>Kansal Hosiery Exports</h6>
-<p>March 2023 – March 2024</p>
-<ul>
-<li>Employee joining formalities and onboarding.</li>
-<li>ESI and PF registrations.</li>
-<li>Compliance register maintenance.</li>
-<li>Employee records management.</li>
-</ul>
-</div>
-
-</div>
-</div>
+  <div class="compliance-grid fade-up">
+    <div class="compliance-pill"><div class="pill-dot" style="background:#7c6af5"></div>Employees' State Insurance (ESI)</div>
+    <div class="compliance-pill"><div class="pill-dot" style="background:#a78bfa"></div>Provident Fund (PF / EPF)</div>
+    <div class="compliance-pill"><div class="pill-dot" style="background:#5eead4"></div>Labour Welfare Fund (LWF)</div>
+    <div class="compliance-pill"><div class="pill-dot" style="background:#f4c87a"></div>Professional Tax (PT)</div>
+    <div class="compliance-pill"><div class="pill-dot" style="background:#7c6af5"></div>Contract Labour (CLRA)</div>
+    <div class="compliance-pill"><div class="pill-dot" style="background:#a78bfa"></div>Shops & Establishments Act (S&E)</div>
+    <div class="compliance-pill"><div class="pill-dot" style="background:#5eead4"></div>Gratuity Act</div>
+    <div class="compliance-pill"><div class="pill-dot" style="background:#f4c87a"></div>Payroll Processing & Disbursement</div>
+    <div class="compliance-pill"><div class="pill-dot" style="background:#7c6af5"></div>Statutory Register Maintenance</div>
+    <div class="compliance-pill"><div class="pill-dot" style="background:#5eead4"></div>Audit Support & Documentation</div>
+    <div class="compliance-pill"><div class="pill-dot" style="background:#a78bfa"></div>Onboarding & Joining Formalities</div>
+    <div class="compliance-pill"><div class="pill-dot" style="background:#f4c87a"></div>HR Operations Management</div>
+  </div>
 </section>
 
-<section class="section bg-light">
-<div class="container">
-<h2>Core Expertise</h2>
-<span class="badge-skill">Payroll Processing</span>
-<span class="badge-skill">ESI Compliance</span>
-<span class="badge-skill">PF Compliance</span>
-<span class="badge-skill">LWF</span>
-<span class="badge-skill">Professional Tax</span>
-<span class="badge-skill">CLRA</span>
-<span class="badge-skill">Gratuity</span>
-<span class="badge-skill">Employee Onboarding</span>
-<span class="badge-skill">HR Operations</span>
-<span class="badge-skill">Audit Support</span>
-<span class="badge-skill">Documentation</span>
-<span class="badge-skill">Labour Laws</span>
-</div>
+<div class="divider"></div>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-label">Capabilities</div>
+  <h2 class="section-title">Skills That Drive<br>Results</h2>
+
+  <div class="skills-grid">
+    <div class="skill-card fade-up">
+      <div class="skill-icon">📋</div>
+      <div class="skill-name">Payroll & Salary Management</div>
+      <div class="skill-desc">End-to-end payroll processing with accuracy and compliance, ensuring timely disbursement and statutory deductions.</div>
+      <div class="skill-bar"><div class="skill-fill" style="width:90%"></div></div>
+    </div>
+    <div class="skill-card fade-up">
+      <div class="skill-icon">⚖️</div>
+      <div class="skill-name">Labour Law Compliance</div>
+      <div class="skill-desc">Deep working knowledge of ESI, PF, LWF, PT, CLRA, S&E, and Gratuity Acts with practical implementation experience.</div>
+      <div class="skill-bar"><div class="skill-fill" style="width:88%"></div></div>
+    </div>
+    <div class="skill-card fade-up">
+      <div class="skill-icon">🤝</div>
+      <div class="skill-name">Onboarding & Joining</div>
+      <div class="skill-desc">Structured onboarding processes covering documentation, statutory registrations, and employee orientation.</div>
+      <div class="skill-bar"><div class="skill-fill" style="width:85%"></div></div>
+    </div>
+    <div class="skill-card fade-up">
+      <div class="skill-icon">🗂️</div>
+      <div class="skill-name">Record & Register Management</div>
+      <div class="skill-desc">Meticulous maintenance of statutory registers and employee records to withstand internal and external audits.</div>
+      <div class="skill-bar"><div class="skill-fill" style="width:92%"></div></div>
+    </div>
+    <div class="skill-card fade-up">
+      <div class="skill-icon">💬</div>
+      <div class="skill-name">Communication & Coordination</div>
+      <div class="skill-desc">Effective liaison between HR, Finance, and external compliance agencies. Comfortable with public speaking and stakeholder management.</div>
+      <div class="skill-bar"><div class="skill-fill" style="width:80%"></div></div>
+    </div>
+    <div class="skill-card fade-up">
+      <div class="skill-icon">🔍</div>
+      <div class="skill-name">Audit Readiness</div>
+      <div class="skill-desc">Proactively preparing documentation and compliance checks to ensure zero-gap audit responses.</div>
+      <div class="skill-bar"><div class="skill-fill" style="width:87%"></div></div>
+    </div>
+  </div>
 </section>
 
-<section class="section">
-<div class="container">
-<h2>Key Achievements</h2>
-<div class="row">
-<div class="col-md-6"><div class="cardx">Successfully managed statutory compliance records and documentation.</div></div>
-<div class="col-md-6"><div class="cardx">Supported smooth payroll and employee lifecycle operations.</div></div>
-<div class="col-md-6 mt-4"><div class="cardx">Maintained audit-ready compliance registers and reports.</div></div>
-<div class="col-md-6 mt-4"><div class="cardx">Acted as a coordination bridge between HR, Finance and Compliance teams.</div></div>
-</div>
-</div>
+<div class="divider"></div>
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="section-label">Education</div>
+  <h2 class="section-title">Academic Foundation</h2>
+  <div class="fade-up">
+    <div class="edu-card">
+      <div class="edu-icon">🎓</div>
+      <div>
+        <div class="edu-degree">Bachelor of Commerce (B.Com)</div>
+        <div class="edu-inst">LPU — Lovely Professional University (Distance)</div>
+        <div class="edu-meta">Ludhiana, Punjab · January 2023 – Present</div>
+        <div class="edu-status"><span class="status-dot"></span> Currently Pursuing</div>
+      </div>
+    </div>
+  </div>
 </section>
 
-<section class="section bg-light">
-<div class="container">
-<h2>Education</h2>
-<div class="cardx">
-<h4>Bachelor of Commerce (Pursuing)</h4>
-<p>LPU Distance Education</p>
-</div>
-</div>
+<div class="divider"></div>
+
+<!-- INTERESTS -->
+<section>
+  <div class="section-label">Beyond Work</div>
+  <h2 class="section-title">Personal Interests</h2>
+  <div class="interests-row fade-up">
+    <div class="interest-chip">🏏 Cricket</div>
+    <div class="interest-chip">📈 Financial Markets</div>
+    <div class="interest-chip">💪 Personal Fitness</div>
+    <div class="interest-chip">🧠 Learning New Skills</div>
+    <div class="interest-chip">✈️ Travel</div>
+  </div>
 </section>
 
-<section class="section">
-<div class="container">
-<h2>Personal Interests</h2>
-<div class="row">
-<div class="col-md-3"><div class="cardx text-center"><i class="fas fa-chart-line fa-2x"></i><p class="mt-3">Financial Markets</p></div></div>
-<div class="col-md-3"><div class="cardx text-center"><i class="fas fa-dumbbell fa-2x"></i><p class="mt-3">Fitness</p></div></div>
-<div class="col-md-3"><div class="cardx text-center"><i class="fas fa-plane fa-2x"></i><p class="mt-3">Travel</p></div></div>
-<div class="col-md-3"><div class="cardx text-center"><i class="fas fa-book fa-2x"></i><p class="mt-3">Continuous Learning</p></div></div>
-</div>
-</div>
+<div class="divider"></div>
+
+<!-- CONTACT -->
+<section id="contact" class="contact-bg">
+  <div class="section-label">Get In Touch</div>
+  <h2 class="section-title">Let's Connect</h2>
+  <div class="contact-wrapper">
+    <div class="contact-info fade-up">
+      <a href="tel:+918725014901" class="contact-row">
+        <div class="c-icon">📞</div>
+        <div>
+          <div class="c-label">Phone</div>
+          <div class="c-val">+91 87250-14901</div>
+        </div>
+      </a>
+      <a href="mailto:gusainayush978@gmail.com" class="contact-row">
+        <div class="c-icon">✉️</div>
+        <div>
+          <div class="c-label">Email</div>
+          <div class="c-val">gusainayush978@gmail.com</div>
+        </div>
+      </a>
+      <div class="contact-row" style="cursor:default">
+        <div class="c-icon">📍</div>
+        <div>
+          <div class="c-label">Location</div>
+          <div class="c-val">Z-Block, Rishi Nagar, Ludhiana — 141001</div>
+        </div>
+      </div>
+      <div class="contact-row" style="cursor:default">
+        <div class="c-icon">🏢</div>
+        <div>
+          <div class="c-label">Current Company</div>
+          <div class="c-val">Talent Traverse HR Tech · Gurgaon</div>
+        </div>
+      </div>
+    </div>
+    <div class="contact-cta fade-up">
+      <div class="cta-headline">Open to Opportunities</div>
+      <p class="cta-sub">Whether you're looking for a dedicated compliance professional or need expert HR support, I'd love to hear from you. Let's build something compliant and efficient together.</p>
+      <a href="mailto:gusainayush978@gmail.com" class="btn-primary">Send a Message →</a>
+    </div>
+  </div>
 </section>
 
-<section class="section bg-light">
-<div class="container">
-<h2>Contact</h2>
-<div class="cardx">
-<p><i class="fas fa-phone"></i> +91 87250-14901</p>
-<p><i class="fas fa-envelope"></i> gusainayush978@gmail.com</p>
-<p><i class="fas fa-location-dot"></i> Ludhiana, Punjab, India</p>
-</div>
-</div>
-</section>
+<!-- FOOTER -->
+<footer>
+  <p>Designed & built for <span>Ayush Gusain</span> · HR & Compliance Professional · © 2025</p>
+</footer>
 
-<div class="footer text-center">
-<h5>Ayush Gusain</h5>
-<p class="mb-0">HR & Compliance Professional | Air India Express Compliance Operations</p>
-</div>
+<script>
+  // Theme toggle
+  function toggleTheme() {
+    const html = document.documentElement;
+    const isDark = html.getAttribute('data-theme') === 'dark';
+    html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+    document.getElementById('theme-icon').textContent = isDark ? '🌙' : '☀️';
+    document.getElementById('theme-label').textContent = isDark ? 'Dark' : 'Light';
+  }
 
+  // Scroll animations
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        // Animate skill bars
+        const fills = e.target.querySelectorAll('.skill-fill');
+        fills.forEach(f => {
+          const w = f.style.width;
+          f.style.width = '0';
+          setTimeout(() => f.style.width = w, 100);
+        });
+      }
+    });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+</script>
 </body>
 </html>
-
