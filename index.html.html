@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ayush | Human Resources Professional</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        expressOrange: '#FF4E00', /* Air India Express Vibrant Orange */
+                        expressTurquoise: '#00A896', /* Modern Turquoise Accent */
+                        skyNavy: '#0A192F', /* Deep Premium Slate/Navy */
+                        cloudWhite: '#F8FAFC'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        html { scroll-behavior: smooth; }
+        .gradient-bg {
+            background: linear-gradient(135deg, #0A192F 0%, #112240 100%);
+        }
+    </style>
+</head>
+<body class="bg-cloudWhite text-gray-800 font-sans antialiased">
+
+    <nav class="sticky top-0 z-50 bg-skyNavy text-white backdrop-blur-md bg-opacity-95 border-b border-gray-700">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <div class="flex items-center space-x-2">
+                <i class="fa-solid fa-plane-departure text-expressOrange text-xl"></i>
+                <span class="font-bold text-xl tracking-wider">AYUSH<span class="text-expressOrange">.</span>HR</span>
+            </div>
+            <div class="hidden md:flex space-x-8 font-medium text-sm tracking-wide">
+                <a href="#about" class="hover:text-expressOrange transition-colors">About Me</a>
+                <a href="#experience" class="hover:text-expressOrange transition-colors">Flight Path (Experience)</a>
+                <a href="#metrics" class="hover:text-expressOrange transition-colors">Impact Metrics</a>
+                <a href="#contact" class="bg-expressOrange px-4 py-2 rounded-md text-white hover:bg-opacity-90 transition-all">Let's Connect</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="gradient-bg text-white relative overflow-hidden py-24 px-4 sm:px-6 lg:px-8 flex items-center min-h-[85vh]">
+        <div class="absolute inset-0 opacity-10">
+            <svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+                <path d="M-100 300 C 200 300, 400 100, 1000 400 M0 150 C 400 400, 600 200, 1200 250" stroke="white" stroke-width="2" fill="none"/>
+            </svg>
+        </div>
+        
+        <div class="max-w-4xl mx-auto text-center relative z-10">
+            <span class="inline-block bg-gray-800 text-expressTurquoise text-xs font-bold tracking-widest uppercase px-3 py-1 rounded-full mb-4 border border-expressTurquoise/30">
+                <i class="fa-solid fa-circle-check mr-1"></i> 3+ Years of Aviation HR Excellence
+            </span>
+            <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight mb-6">
+                Navigating Talent, Elevating Culture at <span class="text-expressOrange">Air India Express</span>
+            </h1>
+            <p class="text-lg sm:text-xl text-gray-300 max-w-2xl mx-auto mb-10 leading-relaxed">
+                Specializing in end-to-end talent acquisition, employee lifecycle management, and building high-performance crew and corporate cultures in the fast-paced aviation industry.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#experience" class="bg-expressOrange hover:bg-opacity-90 text-white font-bold px-8 py-4 rounded-lg shadow-lg transition-all flex items-center justify-center gap-2">
+                    View My Journey <i class="fa-solid fa-arrow-right"></i>
+                </a>
+                <a href="#contact" class="border border-white/30 hover:border-white text-white font-bold px-8 py-4 rounded-lg transition-all flex items-center justify-center gap-2">
+                    Get In Touch <i class="fa-solid fa-envelope"></i>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <section id="about" class="py-20 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <div>
+                <h2 class="text-xs font-bold text-expressOrange tracking-widest uppercase mb-2">My Philosophy</h2>
+                <h3 class="text-3xl font-bold text-skyNavy mb-6">Keeping Teams Grounded, Desires Soaring</h3>
+                <p class="text-gray-600 mb-4 leading-relaxed">
+                    With over 3 years of dedicated experience in Human Resources within the dynamic aviation sector at Air India Express, I’ve mastered the art of managing people fast-tracked for growth. 
+                </p>
+                <p class="text-gray-600 mb-6 leading-relaxed">
+                    I believe that HR isn't just about policies; it's about engineering a supportive framework where crew, ground staff, and corporate teams feel empowered to perform at 35,000 feet and below.
+                </p>
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="p-4 bg-white rounded-xl shadow-sm border-l-4 border-expressTurquoise">
+                        <h4 class="font-bold text-skyNavy">Talent Sourcing</h4>
+                        <p class="text-xs text-gray-500">Finding industry-ready flight and ground experts.</p>
+                    </div>
+                    <div class="p-4 bg-white rounded-xl shadow-sm border-l-4 border-expressOrange">
+                        <h4 class="font-bold text-skyNavy">Retention Rate</h4>
+                        <p class="text-xs text-gray-500">Designing culture blueprints that minimize churn.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-skyNavy text-white p-8 rounded-2xl shadow-xl relative overflow-hidden">
+                <div class="absolute right-0 bottom-0 translate-x-10 translate-y-10 opacity-5">
+                    <i class="fa-solid fa-users text-[15rem]"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-4 text-expressTurquoise">Core Toolkit & Compliance</h3>
+                <ul class="space-y-4 text-sm text-gray-300">
+                    <li class="flex items-start gap-3">
+                        <i class="fa-solid fa-check text-expressOrange mt-1"></i>
+                        <span><strong>Aviation Regulatory Compliance:</strong> Well-versed in standard DGCA guidelines and crew duty-time limitations from an HR perspective.</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <i class="fa-solid fa-check text-expressOrange mt-1"></i>
+                        <span><strong>End-to-End Recruitment:</strong> High-volume pipeline handling for technical cabin crew, customer service agents, and executive roles.</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <i class="fa-solid fa-check text-expressOrange mt-1"></i>
+                        <span><strong>HRMS & Tech Stack:</strong> Experienced with modern ERP/HRMS portals, tracking systems, and data analytics tools for performance mapping.</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <i class="fa-solid fa-check text-expressOrange mt-1"></i>
+                        <span><strong>Conflict Resolution:</strong> Adept at managing employee relations, industrial harmony, and grievance mitigation under tight timelines.</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="metrics" class="bg-gray-100 py-16 border-y border-gray-200">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-xs font-bold text-expressOrange tracking-widest uppercase mb-2">The Dashboard</h2>
+            <h3 class="text-3xl font-bold text-skyNavy mb-12">HR Impact by the Numbers</h3>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-200">
+                    <div class="text-3xl font-extrabold text-skyNavy mb-2">500+</div>
+                    <div class="text-xs font-semibold uppercase tracking-wider text-gray-500">Professionals Onboarded</div>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-200">
+                    <div class="text-3xl font-extrabold text-expressOrange mb-2">94%</div>
+                    <div class="text-xs font-semibold uppercase tracking-wider text-gray-500">Retention Score</div>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-200">
+                    <div class="text-3xl font-extrabold text-skyNavy mb-2">3+ Years</div>
+                    <div class="text-xs font-semibold uppercase tracking-wider text-gray-500">Continuous Flight Time</div>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-200">
+                    <div class="text-3xl font-extrabold text-expressTurquoise mb-2">25 Days</div>
+                    <div class="text-xs font-semibold uppercase tracking-wider text-gray-500">Average Time-to-Hire</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience" class="py-20 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+            <h2 class="text-xs font-bold text-expressOrange tracking-widest uppercase mb-2">Career Journey</h2>
+            <h3 class="text-3xl font-bold text-skyNavy">My Professional Flight Path</h3>
+        </div>
+
+        <div class="relative border-l-2 border-gray-300 ml-4 md:ml-6 space-y-12">
+            <div class="relative pl-8">
+                <div class="absolute -left-[11px] top-1.5 bg-expressOrange w-5 h-5 rounded-full border-4 border-white"></div>
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-200">
+                    <span class="text-xs font-bold text-expressOrange uppercase tracking-wide">2023 - PRESENT</span>
+                    <h4 class="text-xl font-bold text-skyNavy mt-1">Human Resources Specialist / Generalist</h4>
+                    <p class="text-sm font-semibold text-expressTurquoise mb-4">Air India Express · Full-Time</p>
+                    <ul class="list-disc list-inside text-gray-600 text-sm space-y-2">
+                        <li>Lead bulk talent hiring initiatives for cabin crew and operational ground executives across primary hubs.</li>
+                        <li>Driving employee engagement frameworks that align with the modernized Air India Express identity.</li>
+                        <li>Optimized candidate experience strategy, reducing onboarding drops by 15%.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="relative pl-8">
+                <div class="absolute -left-[11px] top-1.5 bg-skyNavy w-5 h-5 rounded-full border-4 border-white"></div>
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-200">
+                    <span class="text-xs font-bold text-gray-500 uppercase tracking-wide">2021 - 2023</span>
+                    <h4 class="text-xl font-bold text-skyNavy mt-1">HR Executive</h4>
+                    <p class="text-sm font-semibold text-gray-500 mb-4">Corporate & Talent Services Sector</p>
+                    <ul class="list-disc list-inside text-gray-600 text-sm space-y-2">
+                        <li>Managed end-to-end employee screening, reference verification, and foundational documentation pipelines.</li>
+                        <li>Assisted in implementing modern automated HRMS tools, cutting manual data entry time in half.</li>
+                        <li>Coordinated cross-department employee welfare and engagement programs.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="gradient-bg text-white py-20 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-3xl mx-auto text-center">
+            <h2 class="text-expressTurquoise text-xs font-bold tracking-widest uppercase mb-2">Cleared for Takeoff?</h2>
+            <h3 class="text-3xl font-bold mb-6">Let's Discuss Global Talent Strategies</h3>
+            <p class="text-gray-400 mb-10 text-sm sm:text-base">
+                Whether you want to collaborate on strategic HR workflows, query aviation operations pipelines, or discuss industry opportunities—my runway is open.
+            </p>
+            
+            <div class="bg-white/5 p-8 rounded-2xl border border-white/10 backdrop-blur-sm max-w-xl mx-auto">
+                <form class="space-y-4 text-left">
+                    <div>
+                        <label class="block text-xs font-semibold text-gray-300 uppercase mb-1">Your Name</label>
+                        <input type="text" class="w-full bg-skyNavy/50 border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-expressOrange transition-colors text-sm" placeholder="John Doe">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-gray-300 uppercase mb-1">Email Address</label>
+                        <input type="email" class="w-full bg-skyNavy/50 border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-expressOrange transition-colors text-sm" placeholder="john@company.com">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-gray-300 uppercase mb-1">Your Message</label>
+                        <textarea rows="4" class="w-full bg-skyNavy/50 border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-expressOrange transition-colors text-sm" placeholder="Let's talk about corporate synergy..."></textarea>
+                    </div>
+                    <button type="submit" class="w-full bg-expressOrange hover:bg-opacity-90 text-white font-bold py-3 px-6 rounded-lg transition-all text-sm uppercase tracking-wider shadow-md">
+                        Submit Flight Plan (Send Message)
+                    </button>
+                </form>
+            </div>
+
+            <div class="mt-12 flex justify-center space-x-6 text-xl text-gray-400">
+                <a href="#" class="hover:text-expressOrange transition-colors"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="#" class="hover:text-expressOrange transition-colors"><i class="fa-solid fa-envelope"></i></a>
+                <a href="#" class="hover:text-expressOrange transition-colors"><i class="fa-brands fa-twitter"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-skyNavy text-gray-500 text-xs py-6 text-center border-t border-gray-800">
+        <p>&copy; 2026 Ayush. Inspired by the spirit of Air India Express. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
