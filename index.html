@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en" data-theme="light">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -28,7 +28,7 @@
     --bg: #f8f9fa;
     --bg2: #ffffff;
     --bg3: #edf0f5;
-    --border: rgba(0,0,0,0.06);
+    --border: rgba(0,0,0,0.08);
     --text: #0b0b11;
     --text2: #4e4e66;
     --text3: #8a8a9e;
@@ -39,7 +39,7 @@
     --teal: #0f766e;
     --glow: rgba(67, 56, 202, 0.05);
     --card: #ffffff;
-    --card-border: rgba(67, 56, 202, 0.1);
+    --card-border: rgba(67, 56, 202, 0.12);
   }
 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -83,13 +83,13 @@
     position: fixed; top: 0; left: 0; right: 0; z-index: 100;
     display: flex; align-items: center; justify-content: space-between;
     padding: 1.5rem 5%;
-    background: rgba(7,7,10,0.75);
+    background: rgba(248,249,250,0.8);
     backdrop-filter: blur(24px);
     -webkit-backdrop-filter: blur(24px);
     border-bottom: 1px solid var(--border);
     transition: background 0.4s, border 0.4s;
   }
-  [data-theme="light"] nav { background: rgba(248,249,250,0.8); }
+  [data-theme="dark"] nav { background: rgba(7,7,10,0.75); }
 
   .nav-logo {
     font-family: 'Playfair Display', serif;
@@ -143,7 +143,7 @@
     transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1), transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
-  /* ── ISOLATED MODE MODIFIERS (When a standalone option is selected) ── */
+  /* ── ISOLATED MODE MODIFIERS ── */
   .isolated-active .page-view {
     display: none;
   }
@@ -166,7 +166,6 @@
     min-height: calc(100vh - 17rem);
   }
 
-  /* Left Empty Side Fix: Premium Wireframe Compliance Art Block */
   .hero-visual-container {
     display: flex;
     justify-content: center;
@@ -185,8 +184,9 @@
     justify-content: space-between;
     padding: 2.5rem;
     border-radius: 12px;
-    box-shadow: 0 40px 80px rgba(0,0,0,0.25);
+    box-shadow: 0 40px 80px rgba(0,0,0,0.1);
   }
+  [data-theme="dark"] .compliance-matrix-badge { box-shadow: 0 40px 80px rgba(0,0,0,0.25); }
   .badge-top { display: flex; justify-content: space-between; align-items: flex-start; }
   .badge-scale { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--text3); letter-spacing: 0.1em; }
   .badge-icon { font-size: 1.5rem; color: var(--gold); }
@@ -198,7 +198,6 @@
   .badge-dot { width: 6px; height: 6px; background: var(--teal); border-radius: 50%; box-shadow: 0 0 8px var(--teal); }
   .badge-ver { font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; color: var(--text3); }
 
-  /* Hero Content */
   .hero-content { max-width: 680px; }
   .hero-eyebrow {
     display: inline-flex; align-items: center; gap: 0.75rem;
@@ -214,7 +213,6 @@
   .stat-num { font-family: 'Playfair Display', serif; font-size: 2.5rem; font-weight: 500; color: var(--text); line-height: 1; }
   .stat-label { font-size: 0.7rem; color: var(--text3); text-transform: uppercase; letter-spacing: 0.1em; margin-top: 0.5rem; font-weight: 600; }
 
-  /* Action Buttons */
   .btn-primary {
     background: var(--text); color: var(--bg); padding: 0.9rem 2.2rem; border-radius: 4px;
     text-decoration: none; font-weight: 600; font-size: 0.85rem; transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
@@ -239,7 +237,6 @@
   .section-title { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 500; line-height: 1.2; letter-spacing: -0.01em; margin-bottom: 1.5rem; }
   .section-sub { color: var(--text2); font-size: 1rem; line-height: 1.7; }
 
-  /* ABOUT DESIGN ELEMENTS */
   .about-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 5rem; align-items: start; }
   .about-text p { color: var(--text2); line-height: 1.9; margin-bottom: 1.5rem; font-size: 1rem; }
   .about-text p strong { color: var(--text); font-weight: 600; }
@@ -249,7 +246,6 @@
   .detail-label { font-size: 0.65rem; color: var(--text3); text-transform: uppercase; letter-spacing: 0.1em; font-weight: 600; }
   .detail-val { font-size: 0.95rem; color: var(--text); font-weight: 500; margin-top: 0.2rem; }
 
-  /* EXPERIENCE WORK JOURNEY ELEMENTS */
   .timeline { display: flex; flex-direction: column; gap: 0; max-width: 900px; }
   .timeline-item { display: grid; grid-template-columns: 200px 1fr; gap: 3rem; position: relative; padding-bottom: 4rem; }
   .timeline-item:last-child { padding-bottom: 0; }
@@ -267,7 +263,6 @@
   .tag.teal { color: var(--teal); background: rgba(20,184,166,0.06); }
   .tag.gold { color: var(--gold); background: rgba(226,176,92,0.06); }
 
-  /* CAPABILITIES & CAPACITIES SECTIONS */
   .skills-container { display: flex; flex-direction: column; gap: 5rem; }
   .compliance-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 1rem; }
   .compliance-pill { display: flex; align-items: center; gap: 1rem; padding: 1.2rem; background: var(--card); border: 1px solid var(--border); border-radius: 6px; font-size: 0.85rem; font-weight: 500; transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1); }
@@ -282,7 +277,6 @@
   .skill-bar { height: 2px; background: var(--bg3); border-radius: 2px; overflow: hidden; }
   .skill-fill { height: 100%; background: var(--text); width: 0; transition: width 1.5s cubic-bezier(0.16, 1, 0.3, 1); }
 
-  /* EXTRA SUB-INFORMATION SYSTEMS */
   .academic-interests-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; margin-top: 4rem; border-top: 1px solid var(--border); padding-top: 4rem; }
   .edu-card { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 2.5rem; display: flex; gap: 2rem; align-items: flex-start; }
   .edu-icon { width: 48px; height: 48px; border-radius: 6px; background: var(--bg3); display: flex; align-items: center; justify-content: center; font-size: 1.3rem; flex-shrink: 0; color: var(--text); }
@@ -294,7 +288,6 @@
   .interests-row { display: flex; flex-wrap: wrap; gap: 0.75rem; }
   .interest-chip { display: flex; align-items: center; gap: 0.6rem; padding: 0.8rem 1.4rem; background: var(--card); border: 1px solid var(--border); border-radius: 4px; font-size: 0.9rem; font-weight: 500; transition: all 0.2s; }
 
-  /* CONTACT CHANNELS MATRIX */
   .contact-wrapper { display: grid; grid-template-columns: 1fr 1.1fr; gap: 5rem; align-items: start; }
   .contact-info { display: flex; flex-direction: column; gap: 1rem; }
   .contact-row { display: flex; align-items: center; gap: 1.5rem; padding: 1.2rem 1.5rem; background: var(--card); border: 1px solid var(--border); border-radius: 6px; text-decoration: none; color: var(--text); transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1); }
@@ -306,7 +299,6 @@
   .cta-headline { font-family: 'Playfair Display', serif; font-size: 1.8rem; font-weight: 500; margin-bottom: 1rem; }
   .cta-sub { color: var(--text2); font-size: 0.95rem; line-height: 1.7; margin-bottom: 2rem; }
 
-  /* ── FOOTER FRAMEWORK ── */
   footer {
     text-align: center; padding: 3rem 5%;
     border-top: 1px solid var(--border);
@@ -316,7 +308,6 @@
   }
   footer span { color: var(--text2); font-weight: 500; }
 
-  /* RESPONSIVE VIEWPORT BREAKPOINTS */
   @media (max-width: 1024px) {
     .hero-grid, .about-grid, .contact-wrapper, .academic-interests-grid { grid-template-columns: 1fr; gap: 3.5rem; }
     .timeline-item { grid-template-columns: 1fr; gap: 1rem; }
@@ -332,16 +323,14 @@
 </head>
 <body>
 
-<!-- DYNAMIC CURSOR TRACKING BACKGROUND LIGHT -->
 <div class="cursor-glow" id="js-cursor-glow"></div>
 
 <div class="app-container">
 
-  <!-- NAVIGATION INFRASTRUCTURE -->
   <nav>
     <div class="nav-logo" onclick="resetToFullView()">AG</div>
     <div class="nav-links">
-      <a href="#home" id="nav-home" onclick="handleNavigation(event, 'home')">Overview</a>
+      <a href="#home" id="nav-home" onclick="resetToFullView(); return false;">Overview</a>
       <a href="#about" id="nav-about" onclick="handleNavigation(event, 'about')">Profile</a>
       <a href="#experience" id="nav-experience" onclick="handleNavigation(event, 'experience')">Journey</a>
       <a href="#skills" id="nav-skills" onclick="handleNavigation(event, 'skills')">Capabilities</a>
@@ -353,10 +342,9 @@
     </button>
   </nav>
 
-  <!-- UNIFIED COMPILATION WRAPPER CONTAINER -->
   <div class="view-wrapper" id="js-view-wrapper">
 
-    <!-- COMPONENT 1: HERO / OVERVIEW -->
+    <!-- OVERVIEW / HERO -->
     <div id="home" class="page-view">
       <div class="hero-grid">
         <div class="hero-visual-container">
@@ -406,7 +394,7 @@
       </div>
     </div>
 
-    <!-- COMPONENT 2: ABOUT / PROFILE -->
+    <!-- PROFILE / ABOUT -->
     <div id="about" class="page-view">
       <div class="section-header">
         <div class="section-label">Identity Overview</div>
@@ -424,7 +412,7 @@
             <div class="detail-icon">📍</div>
             <div>
               <div class="detail-label">Base Location</div>
-              <div class="detail-val">Dharam PG Sector 30,Near Star Mall,Gurgaon,Haryana 122001</div>
+              <div class="detail-val">Dharam PG Sector 30, Near Star Mall, Gurgaon, Haryana 122001</div>
             </div>
           </div>
           <div class="detail-row">
@@ -445,7 +433,7 @@
       </div>
     </div>
 
-    <!-- COMPONENT 3: EXPERIENCE / JOURNEY -->
+    <!-- JOURNEY / EXPERIENCE -->
     <div id="experience" class="page-view">
       <div class="section-header">
         <div class="section-label">Career Timeline</div>
@@ -499,7 +487,7 @@
       </div>
     </div>
 
-    <!-- COMPONENT 4: SKILLS / CAPABILITIES -->
+    <!-- CAPABILITIES / SKILLS -->
     <div id="skills" class="page-view">
       <div class="section-header">
         <div class="section-label">Competence Grid</div>
@@ -570,7 +558,7 @@
       </div>
     </div>
 
-    <!-- COMPONENT 5: CONTACT / CONNECT -->
+    <!-- CONNECT -->
     <div id="contact" class="page-view">
       <div class="section-header">
         <div class="section-label">Communication Node</div>
@@ -597,7 +585,7 @@
             <div class="c-icon">📍</div>
             <div>
               <div class="c-label">Operations HQ Base</div>
-              <div class="c-val">Sector 30, Near Star Mall,Gurgaon,Haryana 122001</div>
+              <div class="c-val">Sector 30, Near Star Mall, Gurgaon, Haryana 122001</div>
             </div>
           </div>
         </div>
@@ -611,7 +599,6 @@
 
   </div>
 
-  <!-- STABLE FOOTER FOOTPRINT -->
   <footer>
     <p>Corporate Dossier Architecture & Built For <span>Ayush Gusain</span> · © 2026</p>
   </footer>
@@ -622,30 +609,25 @@
   const viewWrapper = document.getElementById('js-view-wrapper');
   const auraGlowNode = document.getElementById('js-cursor-glow');
 
-  // CORE ROUTING ENGINE: Toggles between continuous scrolling and clean single-view isolation
   function handleNavigation(event, targetId) {
     if (event) event.preventDefault();
 
-    // Toggle styling container modifications
+    // Toggle isolated mode for sub-pages
     viewWrapper.classList.add('isolated-active');
 
-    // Clean out existing highlight configurations
     document.querySelectorAll('.page-view').forEach(view => view.classList.remove('isolated-focus'));
     document.querySelectorAll('.nav-links a').forEach(link => link.classList.remove('active-nav-link'));
 
-    // Isolate targeting component node explicitly
     const TargetElement = document.getElementById(targetId);
     if (TargetElement) {
       TargetElement.classList.add('isolated-focus');
     }
 
-    // Affix interactive class indicators to top nav items
     const TargetLink = document.getElementById('nav-' + targetId);
     if (TargetLink) {
       TargetLink.classList.add('active-nav-link');
     }
 
-    // Fire data-filling operations smoothly if target matches skill metric criteria
     if (targetId === 'skills') {
       setTimeout(() => {
         document.querySelectorAll('.skill-fill').forEach(fill => {
@@ -656,30 +638,29 @@
       document.querySelectorAll('.skill-fill').forEach(fill => fill.style.width = '0');
     }
 
-    // Reset layout height boundaries back to viewport ceiling seamlessly
     window.scrollTo({ top: 0, behavior: 'instant' });
-    
-    // Set explicit address hashes cleanly
     history.pushState(null, null, '#' + targetId);
   }
 
-  // REVERT INFRASTRUCTURE: Triggered when user selects the Logo node
+  // OVERVIEW / RESET SYSTEM: Shows all sections in a scrollable page
   function resetToFullView() {
     viewWrapper.classList.remove('isolated-active');
     
     document.querySelectorAll('.page-view').forEach(view => view.classList.remove('isolated-focus'));
     document.querySelectorAll('.nav-links a').forEach(link => link.classList.remove('active-nav-link'));
     
-    // Auto-fill metric bars dynamically on default standard scrolling behavior
+    // Set 'Overview' link as active
+    document.getElementById('nav-home').classList.add('active-nav-link');
+
+    // Fill metric bars on scroll behavior
     document.querySelectorAll('.skill-fill').forEach(fill => {
       fill.style.width = fill.getAttribute('data-width');
     });
 
     window.scrollTo({ top: 0, behavior: 'smooth' });
-    history.pushState(null, null, ' ');
+    history.pushState(null, null, '#home');
   }
 
-  // DYNAMIC ADAPTIVE BACKDROP LIGHTING CONTROLLER
   window.addEventListener('mousemove', (e) => {
     auraGlowNode.style.opacity = '1';
     auraGlowNode.style.left = e.clientX + 'px';
@@ -690,7 +671,6 @@
     auraGlowNode.style.opacity = '0';
   });
 
-  // PALETTE MANAGER SYSTEM
   function toggleTheme() {
     const rootElement = document.documentElement;
     const isCurrentlyDark = rootElement.getAttribute('data-theme') === 'dark';
@@ -700,18 +680,15 @@
     document.getElementById('theme-label').textContent = isCurrentlyDark ? 'Dark' : 'Light';
   }
 
-  // ROUTER INITIALIZATION SNAP CONTROLLERS
   window.addEventListener('DOMContentLoaded', () => {
     const activeRouteHash = window.location.hash.replace('#', '');
-    const validRegistrationViews = ['home', 'about', 'experience', 'skills', 'contact'];
+    const validRegistrationViews = ['about', 'experience', 'skills', 'contact'];
     
+    // Check if deep linking to a specific page or staying on Overview
     if (activeRouteHash && validRegistrationViews.includes(activeRouteHash)) {
       handleNavigation(null, activeRouteHash);
     } else {
-      // By default, animate skill bars on basic vertical layout rendering paths
-      document.querySelectorAll('.skill-fill').forEach(fill => {
-        fill.style.width = fill.getAttribute('data-width');
-      });
+      resetToFullView();
     }
   });
 </script>
