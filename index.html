@@ -5,825 +5,715 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Ayush Gusain — HR & Compliance Professional</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700;900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root[data-theme="dark"] {
-    --bg: #0a0a0f;
-    --bg2: #111118;
-    --bg3: #1a1a26;
-    --border: rgba(255,255,255,0.07);
-    --text: #f0f0f8;
-    --text2: #9090b0;
-    --text3: #5a5a7a;
-    --accent: #7c6af5;
-    --accent2: #a78bfa;
-    --accent3: #c4b5fd;
-    --gold: #f4c87a;
-    --teal: #5eead4;
-    --glow: rgba(124,106,245,0.15);
-    --card: #13131e;
-    --card-border: rgba(124,106,245,0.15);
+    --bg: #07070a;
+    --bg2: #0c0c12;
+    --bg3: #14141f;
+    --border: rgba(255,255,255,0.06);
+    --text: #f3f3f6;
+    --text2: #a2a2ba;
+    --text3: #636383;
+    --accent: #5345d6;
+    --accent2: #8b5cf6;
+    --accent3: #ddd6fe;
+    --gold: #e2b05c;
+    --teal: #14b8a6;
+    --glow: rgba(83, 69, 214, 0.12);
+    --card: #0f0f18;
+    --card-border: rgba(83, 69, 214, 0.15);
   }
   :root[data-theme="light"] {
-    --bg: #f7f7fc;
+    --bg: #f8f9fa;
     --bg2: #ffffff;
-    --bg3: #ededf8;
-    --border: rgba(0,0,0,0.07);
-    --text: #0f0f1a;
-    --text2: #4a4a6a;
-    --text3: #9090b0;
-    --accent: #5b4de0;
-    --accent2: #7c6af5;
-    --accent3: #9f8bfa;
-    --gold: #c8922a;
-    --teal: #0d9488;
-    --glow: rgba(91,77,224,0.08);
+    --bg3: #edf0f5;
+    --border: rgba(0,0,0,0.06);
+    --text: #0b0b11;
+    --text2: #4e4e66;
+    --text3: #8a8a9e;
+    --accent: #4338ca;
+    --accent2: #6d28d9;
+    --accent3: #7c3aed;
+    --gold: #b45309;
+    --teal: #0f766e;
+    --glow: rgba(67, 56, 202, 0.05);
     --card: #ffffff;
-    --card-border: rgba(91,77,224,0.12);
+    --card-border: rgba(67, 56, 202, 0.1);
   }
 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
+  html, body { height: 100%; width: 100%; }
   html { scroll-behavior: smooth; }
 
   body {
     font-family: 'Inter', sans-serif;
     background: var(--bg);
     color: var(--text);
-    transition: background 0.4s, color 0.4s;
+    transition: background 0.5s cubic-bezier(0.16, 1, 0.3, 1), color 0.5s cubic-bezier(0.16, 1, 0.3, 1);
     line-height: 1.6;
     overflow-x: hidden;
+    position: relative;
   }
 
-  /* ── NAV ── */
+  /* ── INTERACTIVE MOUSE LIGHTING EFFECT ── */
+  .cursor-glow {
+    position: fixed;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, var(--glow) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 1;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+  }
+
+  .app-container {
+    position: relative;
+    z-index: 2;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* ── EXECUTIVE NAVIGATION BAR ── */
   nav {
     position: fixed; top: 0; left: 0; right: 0; z-index: 100;
     display: flex; align-items: center; justify-content: space-between;
-    padding: 1.2rem 5%;
-    background: rgba(10,10,15,0.75);
-    backdrop-filter: blur(20px);
+    padding: 1.5rem 5%;
+    background: rgba(7,7,10,0.75);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
     border-bottom: 1px solid var(--border);
-    transition: background 0.4s;
+    transition: background 0.4s, border 0.4s;
   }
-  [data-theme="light"] nav { background: rgba(247,247,252,0.8); }
+  [data-theme="light"] nav { background: rgba(248,249,250,0.8); }
 
   .nav-logo {
     font-family: 'Playfair Display', serif;
-    font-size: 1.3rem;
+    font-size: 1.5rem;
     font-weight: 700;
-    background: linear-gradient(135deg, var(--accent2), var(--teal));
+    letter-spacing: -0.03em;
+    background: linear-gradient(135deg, var(--text), var(--text3));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    cursor: pointer;
   }
-  .nav-links { display: flex; gap: 2rem; align-items: center; }
+  .nav-links { display: flex; gap: 2.5rem; align-items: center; }
   .nav-links a {
-    color: var(--text2); text-decoration: none; font-size: 0.85rem;
-    font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase;
-    transition: color 0.2s;
+    color: var(--text2); text-decoration: none; font-size: 0.8rem;
+    font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
+    transition: color 0.25s;
+    position: relative;
+    padding: 0.4rem 0;
   }
-  .nav-links a:hover { color: var(--accent2); }
+  .nav-links a::after {
+    content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 1px;
+    background: var(--text); transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .nav-links a:hover { color: var(--text); }
+  .nav-links a:hover::after { width: 100%; }
+  .nav-links a.active-nav-link { color: var(--text); }
+  .nav-links a.active-nav-link::after { width: 100%; }
 
   .theme-toggle {
-    background: var(--bg3); border: 1px solid var(--border);
-    border-radius: 50px; padding: 0.4rem 0.8rem;
-    cursor: pointer; display: flex; align-items: center; gap: 0.4rem;
-    color: var(--text2); font-size: 0.8rem; transition: all 0.3s;
+    background: var(--bg2); border: 1px solid var(--border);
+    border-radius: 50px; padding: 0.5rem 1rem;
+    cursor: pointer; display: flex; align-items: center; gap: 0.5rem;
+    color: var(--text2); font-size: 0.8rem; transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    font-weight: 500;
   }
-  .theme-toggle:hover { border-color: var(--accent); color: var(--accent2); }
+  .theme-toggle:hover { border-color: var(--text3); color: var(--text); transform: translateY(-1px); }
 
-  /* ── HERO ── */
-  .hero {
-    min-height: 100vh;
-    display: flex; align-items: center;
-    padding: 8rem 5% 5rem;
-    position: relative; overflow: hidden;
-  }
-  .hero-orb {
-    position: absolute; border-radius: 50%;
-    filter: blur(80px); pointer-events: none;
-  }
-  .orb1 { width: 500px; height: 500px; background: rgba(124,106,245,0.12); top: -100px; right: -100px; }
-  .orb2 { width: 300px; height: 300px; background: rgba(94,234,212,0.07); bottom: 0; left: -50px; }
-
-  .hero-content { position: relative; z-index: 1; max-width: 750px; }
-
-  .hero-eyebrow {
-    display: inline-flex; align-items: center; gap: 0.5rem;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.75rem; color: var(--teal);
-    letter-spacing: 0.12em; text-transform: uppercase;
-    margin-bottom: 1.5rem;
-  }
-  .hero-eyebrow::before {
-    content: ''; display: block; width: 2rem; height: 1px;
-    background: var(--teal);
-  }
-
-  .hero-name {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(3rem, 7vw, 6rem);
-    font-weight: 900;
-    line-height: 1.05;
-    letter-spacing: -0.02em;
-    margin-bottom: 0.5rem;
-  }
-  .hero-name span {
-    background: linear-gradient(135deg, var(--accent2) 0%, var(--teal) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-
-  .hero-title {
-    font-size: 1.1rem; color: var(--gold);
-    font-weight: 500; margin-bottom: 1.5rem;
-    letter-spacing: 0.02em;
-  }
-
-  .hero-desc {
-    font-size: 1rem; color: var(--text2);
-    max-width: 560px; line-height: 1.8;
-    margin-bottom: 2.5rem;
-  }
-
-  .hero-stats {
-    display: flex; gap: 3rem; margin-bottom: 2.5rem;
-  }
-  .stat-item { }
-  .stat-num {
-    font-family: 'Playfair Display', serif;
-    font-size: 2.2rem; font-weight: 700;
-    color: var(--accent2); line-height: 1;
-  }
-  .stat-label {
-    font-size: 0.75rem; color: var(--text3);
-    text-transform: uppercase; letter-spacing: 0.08em;
-    margin-top: 0.25rem;
-  }
-
-  .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
-  .btn-primary {
-    background: linear-gradient(135deg, var(--accent), var(--accent2));
-    color: #fff; padding: 0.8rem 2rem; border-radius: 6px;
-    text-decoration: none; font-weight: 600; font-size: 0.9rem;
-    transition: all 0.3s; border: none; cursor: pointer;
-    box-shadow: 0 4px 20px rgba(124,106,245,0.3);
-  }
-  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(124,106,245,0.4); }
-  .btn-ghost {
-    background: transparent; color: var(--text);
-    padding: 0.8rem 2rem; border-radius: 6px;
-    text-decoration: none; font-weight: 500; font-size: 0.9rem;
-    border: 1px solid var(--border); transition: all 0.3s;
-  }
-  .btn-ghost:hover { border-color: var(--accent); color: var(--accent2); }
-
-  /* ── SECTION COMMON ── */
-  section { padding: 6rem 5%; }
-
-  .section-label {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.7rem; color: var(--accent2);
-    letter-spacing: 0.15em; text-transform: uppercase;
-    margin-bottom: 0.75rem;
-    display: flex; align-items: center; gap: 0.75rem;
-  }
-  .section-label::after {
-    content: ''; flex: 1; max-width: 3rem; height: 1px;
-    background: var(--accent);
-  }
-
-  .section-title {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(1.8rem, 3.5vw, 2.8rem);
-    font-weight: 700; line-height: 1.2;
-    margin-bottom: 1rem;
-  }
-
-  .section-sub {
-    color: var(--text2); font-size: 0.95rem;
-    max-width: 520px; line-height: 1.7;
-    margin-bottom: 3rem;
-  }
-
-  /* ── DIVIDER ── */
-  .divider {
-    height: 1px;
-    background: linear-gradient(90deg, transparent, var(--border), transparent);
-    margin: 0 5%;
-  }
-
-  /* ── ABOUT ── */
-  .about-grid {
-    display: grid; grid-template-columns: 1fr 1fr;
-    gap: 4rem; align-items: start;
-  }
-  .about-text p {
-    color: var(--text2); line-height: 1.85;
-    margin-bottom: 1.2rem; font-size: 0.95rem;
-  }
-  .about-text p strong { color: var(--text); }
-
-  .about-details { display: flex; flex-direction: column; gap: 1rem; }
-  .detail-row {
-    display: flex; align-items: center; gap: 1rem;
-    padding: 0.9rem 1.2rem;
-    background: var(--card); border: 1px solid var(--card-border);
-    border-radius: 8px;
-  }
-  .detail-icon { font-size: 1.1rem; width: 1.5rem; text-align: center; }
-  .detail-label { font-size: 0.7rem; color: var(--text3); text-transform: uppercase; letter-spacing: 0.08em; }
-  .detail-val { font-size: 0.9rem; color: var(--text); font-weight: 500; margin-top: 0.1rem; }
-
-  /* ── EXPERIENCE ── */
-  .exp-bg { background: var(--bg2); }
-
-  .timeline { display: flex; flex-direction: column; gap: 0; }
-
-  .timeline-item {
-    display: grid; grid-template-columns: 180px 1fr;
-    gap: 2rem; position: relative; padding-bottom: 3rem;
-  }
-  .timeline-item:last-child { padding-bottom: 0; }
-
-  .timeline-item::before {
-    content: '';
-    position: absolute;
-    left: 179px;
-    top: 0.6rem;
-    bottom: 0;
-    width: 1px;
-    background: linear-gradient(180deg, var(--accent), transparent);
-  }
-  .timeline-item:last-child::before { display: none; }
-
-  .tl-date {
-    text-align: right;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.72rem; color: var(--teal);
-    letter-spacing: 0.04em; padding-top: 0.1rem;
-    line-height: 1.5;
-  }
-
-  .tl-dot {
-    position: absolute; left: 172px; top: 0.3rem;
-    width: 14px; height: 14px; border-radius: 50%;
-    background: var(--accent); border: 3px solid var(--bg2);
-    box-shadow: 0 0 12px var(--accent);
-  }
-
-  .tl-body {
-    background: var(--card); border: 1px solid var(--card-border);
-    border-radius: 12px; padding: 1.5rem 1.8rem;
+  /* ── SECTION ARCHITECTURE ── */
+  .view-wrapper {
+    flex: 1;
+    margin-top: 5rem;
     position: relative;
   }
-  .tl-body::before {
-    content: '';
-    position: absolute; left: -8px; top: 1rem;
-    width: 0; height: 0;
-    border-top: 7px solid transparent;
-    border-bottom: 7px solid transparent;
-    border-right: 8px solid var(--card-border);
+  
+  .page-view {
+    padding: 6rem 5%;
+    border-bottom: 1px solid var(--border);
+    opacity: 1;
+    transform: none;
+    transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1), transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
-  .tl-company {
-    font-size: 0.7rem; color: var(--gold);
-    text-transform: uppercase; letter-spacing: 0.1em;
-    font-weight: 600; margin-bottom: 0.3rem;
+  /* ── ISOLATED MODE MODIFIERS (When a standalone option is selected) ── */
+  .isolated-active .page-view {
+    display: none;
   }
-  .tl-role {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.3rem; font-weight: 700;
-    margin-bottom: 0.6rem;
+  .isolated-active .page-view.isolated-focus {
+    display: block !important;
+    border-bottom: none;
+    animation: smoothFadeIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   }
-  .tl-location {
-    font-size: 0.75rem; color: var(--text3);
-    margin-bottom: 1rem; display: flex; align-items: center; gap: 0.3rem;
-  }
-  .tl-desc {
-    color: var(--text2); font-size: 0.88rem; line-height: 1.8;
-  }
-  .tl-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1rem; }
-  .tag {
-    font-size: 0.7rem; padding: 0.25rem 0.75rem;
-    background: var(--glow); color: var(--accent3);
-    border: 1px solid var(--card-border); border-radius: 50px;
-    font-weight: 500; letter-spacing: 0.03em;
-  }
-  .tag.teal { color: var(--teal); background: rgba(94,234,212,0.07); border-color: rgba(94,234,212,0.2); }
-  .tag.gold { color: var(--gold); background: rgba(244,200,122,0.07); border-color: rgba(244,200,122,0.2); }
-
-  /* ── SKILLS ── */
-  .skills-grid {
-    display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-    gap: 1.2rem;
-  }
-  .skill-card {
-    background: var(--card); border: 1px solid var(--card-border);
-    border-radius: 12px; padding: 1.5rem;
-    transition: all 0.3s; position: relative; overflow: hidden;
-  }
-  .skill-card::before {
-    content: ''; position: absolute; inset: 0;
-    background: linear-gradient(135deg, var(--glow), transparent);
-    opacity: 0; transition: opacity 0.3s;
-  }
-  .skill-card:hover { transform: translateY(-4px); border-color: var(--accent); }
-  .skill-card:hover::before { opacity: 1; }
-
-  .skill-icon { font-size: 1.8rem; margin-bottom: 0.8rem; }
-  .skill-name { font-weight: 600; font-size: 0.95rem; margin-bottom: 0.4rem; }
-  .skill-desc { font-size: 0.8rem; color: var(--text3); line-height: 1.5; }
-
-  .skill-bar { height: 3px; background: var(--bg3); border-radius: 50px; margin-top: 1rem; overflow: hidden; }
-  .skill-fill {
-    height: 100%;
-    background: linear-gradient(90deg, var(--accent), var(--teal));
-    border-radius: 50px;
-    transition: width 1.2s ease;
+  @keyframes smoothFadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
   }
 
-  /* ── COMPLIANCE EXPERTISE ── */
-  .compliance-bg { background: var(--bg2); }
-
-  .compliance-grid {
-    display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 1rem;
-  }
-  .compliance-pill {
-    display: flex; align-items: center; gap: 0.75rem;
-    padding: 1rem 1.2rem;
-    background: var(--card); border: 1px solid var(--card-border);
-    border-radius: 10px; font-size: 0.85rem; font-weight: 500;
-    transition: all 0.25s;
-    cursor: default;
-  }
-  .compliance-pill:hover {
-    border-color: var(--accent);
-    background: var(--glow);
-    transform: translateY(-2px);
-  }
-  .pill-dot {
-    width: 8px; height: 8px; border-radius: 50%;
-    flex-shrink: 0;
+  /* ── HERO VIEW BLOCK ── */
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;
+    gap: 4rem;
+    align-items: center;
+    min-height: calc(100vh - 17rem);
   }
 
-  /* ── EDUCATION ── */
-  .edu-card {
-    background: var(--card); border: 1px solid var(--card-border);
-    border-radius: 14px; padding: 2rem 2.5rem;
-    display: flex; align-items: center; gap: 2rem;
-    max-width: 600px;
-    transition: border-color 0.3s;
+  /* Left Empty Side Fix: Premium Wireframe Compliance Art Block */
+  .hero-visual-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 100%;
   }
-  .edu-card:hover { border-color: var(--accent); }
-  .edu-icon {
-    width: 64px; height: 64px; border-radius: 14px;
-    background: linear-gradient(135deg, var(--accent), var(--teal));
-    display: flex; align-items: center; justify-content: center;
-    font-size: 1.8rem; flex-shrink: 0;
+  .compliance-matrix-badge {
+    position: relative;
+    width: 340px;
+    height: 340px;
+    border: 1px solid var(--border);
+    background: radial-gradient(circle at 0% 0%, var(--bg2), var(--bg));
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 2.5rem;
+    border-radius: 12px;
+    box-shadow: 0 40px 80px rgba(0,0,0,0.25);
   }
-  .edu-degree { font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 700; margin-bottom: 0.3rem; }
-  .edu-inst { color: var(--gold); font-size: 0.85rem; font-weight: 600; margin-bottom: 0.3rem; }
-  .edu-meta { font-size: 0.78rem; color: var(--text3); }
-  .edu-status {
-    display: inline-flex; align-items: center; gap: 0.4rem;
-    font-size: 0.7rem; color: var(--teal);
-    background: rgba(94,234,212,0.1); border: 1px solid rgba(94,234,212,0.25);
-    padding: 0.2rem 0.6rem; border-radius: 50px;
-    margin-top: 0.5rem;
+  .badge-top { display: flex; justify-content: space-between; align-items: flex-start; }
+  .badge-scale { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--text3); letter-spacing: 0.1em; }
+  .badge-icon { font-size: 1.5rem; color: var(--gold); }
+  .badge-center { margin: 2rem 0; }
+  .badge-title { font-family: 'Playfair Display', serif; font-size: 2.2rem; font-weight: 500; line-height: 1.2; color: var(--text); }
+  .badge-title span { color: var(--teal); font-family: 'Inter', sans-serif; font-size: 0.9rem; display: block; margin-top: 0.5rem; font-weight: 600; letter-spacing: 0.05em; }
+  .badge-bottom { display: flex; align-items: center; justify-content: space-between; border-top: 1px solid var(--border); padding-top: 1.2rem; }
+  .badge-status { font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--teal); display: flex; align-items: center; gap: 0.5rem; }
+  .badge-dot { width: 6px; height: 6px; background: var(--teal); border-radius: 50%; box-shadow: 0 0 8px var(--teal); }
+  .badge-ver { font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; color: var(--text3); }
+
+  /* Hero Content */
+  .hero-content { max-width: 680px; }
+  .hero-eyebrow {
+    display: inline-flex; align-items: center; gap: 0.75rem;
+    font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: var(--teal);
+    letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 1.5rem; font-weight: 500;
   }
+  .hero-eyebrow::before { content: ''; display: block; width: 1.5rem; height: 1px; background: var(--teal); }
+  .hero-name { font-family: 'Playfair Display', serif; font-size: clamp(2.8rem, 5vw, 4.8rem); font-weight: 700; line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 1rem; }
+  .hero-name span { color: var(--text3); font-weight: 400; }
+  .hero-title { font-size: 1.15rem; color: var(--gold); font-weight: 500; margin-bottom: 2rem; letter-spacing: 0.02em; }
+  .hero-desc { font-size: 1rem; color: var(--text2); max-width: 540px; line-height: 1.8; margin-bottom: 3rem; }
+  .hero-stats { display: flex; gap: 4rem; margin-bottom: 3rem; border-top: 1px solid var(--border); padding-top: 2rem; }
+  .stat-num { font-family: 'Playfair Display', serif; font-size: 2.5rem; font-weight: 500; color: var(--text); line-height: 1; }
+  .stat-label { font-size: 0.7rem; color: var(--text3); text-transform: uppercase; letter-spacing: 0.1em; margin-top: 0.5rem; font-weight: 600; }
+
+  /* Action Buttons */
+  .btn-primary {
+    background: var(--text); color: var(--bg); padding: 0.9rem 2.2rem; border-radius: 4px;
+    text-decoration: none; font-weight: 600; font-size: 0.85rem; transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    border: 1px solid var(--text); cursor: pointer; letter-spacing: 0.05em; text-transform: uppercase;
+  }
+  .btn-primary:hover { background: transparent; color: var(--text); transform: translateY(-2px); }
+  .btn-ghost {
+    background: transparent; color: var(--text); padding: 0.9rem 2.2rem; border-radius: 4px;
+    text-decoration: none; font-weight: 600; font-size: 0.85rem; border: 1px solid var(--border);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1); cursor: pointer; letter-spacing: 0.05em; text-transform: uppercase;
+  }
+  .btn-ghost:hover { border-color: var(--text2); transform: translateY(-2px); }
+
+  /* ── SECTION CONTENT DESIGNS ── */
+  .section-header { margin-bottom: 4rem; max-width: 700px; }
+  .section-label {
+    font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--text3);
+    letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 1rem;
+    display: flex; align-items: center; gap: 1rem; font-weight: 500;
+  }
+  .section-label::after { content: ''; width: 2rem; height: 1px; background: var(--border); }
+  .section-title { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 500; line-height: 1.2; letter-spacing: -0.01em; margin-bottom: 1.5rem; }
+  .section-sub { color: var(--text2); font-size: 1rem; line-height: 1.7; }
+
+  /* ABOUT DESIGN ELEMENTS */
+  .about-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 5rem; align-items: start; }
+  .about-text p { color: var(--text2); line-height: 1.9; margin-bottom: 1.5rem; font-size: 1rem; }
+  .about-text p strong { color: var(--text); font-weight: 600; }
+  .about-details { display: flex; flex-direction: column; gap: 1rem; }
+  .detail-row { display: flex; align-items: center; gap: 1.5rem; padding: 1.2rem 1.5rem; background: var(--card); border: 1px solid var(--border); border-radius: 6px; }
+  .detail-icon { font-size: 1.2rem; color: var(--text3); }
+  .detail-label { font-size: 0.65rem; color: var(--text3); text-transform: uppercase; letter-spacing: 0.1em; font-weight: 600; }
+  .detail-val { font-size: 0.95rem; color: var(--text); font-weight: 500; margin-top: 0.2rem; }
+
+  /* EXPERIENCE WORK JOURNEY ELEMENTS */
+  .timeline { display: flex; flex-direction: column; gap: 0; max-width: 900px; }
+  .timeline-item { display: grid; grid-template-columns: 200px 1fr; gap: 3rem; position: relative; padding-bottom: 4rem; }
+  .timeline-item:last-child { padding-bottom: 0; }
+  .timeline-item::before { content: ''; position: absolute; left: 199px; top: 0.8rem; bottom: 0; width: 1px; background: var(--border); }
+  .timeline-item:last-child::before { display: none; }
+  .tl-date { text-align: right; font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: var(--text3); letter-spacing: 0.05em; padding-top: 0.2rem; line-height: 1.6; font-weight: 500; }
+  .tl-body { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 2rem 2.5rem; transition: border-color 0.3s; }
+  .tl-body:hover { border-color: var(--card-border); }
+  .tl-company { font-size: 0.7rem; color: var(--gold); text-transform: uppercase; letter-spacing: 0.15em; font-weight: 700; margin-bottom: 0.5rem; }
+  .tl-role { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 500; margin-bottom: 0.5rem; color: var(--text); }
+  .tl-location { font-size: 0.8rem; color: var(--text3); margin-bottom: 1.5rem; font-weight: 500; }
+  .tl-desc { color: var(--text2); font-size: 0.95rem; line-height: 1.8; margin-bottom: 1.5rem; }
+  .tl-tags { display: flex; flex-wrap: wrap; gap: 0.6rem; }
+  .tag { font-size: 0.7rem; padding: 0.3rem 0.9rem; background: var(--bg3); color: var(--text2); border-radius: 4px; font-weight: 500; letter-spacing: 0.02em; }
+  .tag.teal { color: var(--teal); background: rgba(20,184,166,0.06); }
+  .tag.gold { color: var(--gold); background: rgba(226,176,92,0.06); }
+
+  /* CAPABILITIES & CAPACITIES SECTIONS */
+  .skills-container { display: flex; flex-direction: column; gap: 5rem; }
+  .compliance-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 1rem; }
+  .compliance-pill { display: flex; align-items: center; gap: 1rem; padding: 1.2rem; background: var(--card); border: 1px solid var(--border); border-radius: 6px; font-size: 0.85rem; font-weight: 500; transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1); }
+  .compliance-pill:hover { border-color: var(--text2); transform: translateY(-2px); background: var(--bg2); }
+  .pill-dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; }
+  .skills-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.5rem; }
+  .skill-card { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 2rem; transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1); }
+  .skill-card:hover { border-color: var(--card-border); transform: translateY(-3px); }
+  .skill-icon { font-size: 1.5rem; margin-bottom: 1rem; color: var(--text2); }
+  .skill-name { font-weight: 600; font-size: 1rem; margin-bottom: 0.5rem; color: var(--text); }
+  .skill-desc { font-size: 0.85rem; color: var(--text2); line-height: 1.6; margin-bottom: 1.5rem; }
+  .skill-bar { height: 2px; background: var(--bg3); border-radius: 2px; overflow: hidden; }
+  .skill-fill { height: 100%; background: var(--text); width: 0; transition: width 1.5s cubic-bezier(0.16, 1, 0.3, 1); }
+
+  /* EXTRA SUB-INFORMATION SYSTEMS */
+  .academic-interests-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; margin-top: 4rem; border-top: 1px solid var(--border); padding-top: 4rem; }
+  .edu-card { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 2.5rem; display: flex; gap: 2rem; align-items: flex-start; }
+  .edu-icon { width: 48px; height: 48px; border-radius: 6px; background: var(--bg3); display: flex; align-items: center; justify-content: center; font-size: 1.3rem; flex-shrink: 0; color: var(--text); }
+  .edu-degree { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 500; margin-bottom: 0.4rem; }
+  .edu-inst { color: var(--gold); font-size: 0.85rem; font-weight: 600; margin-bottom: 0.5rem; letter-spacing: 0.05em; }
+  .edu-meta { font-size: 0.8rem; color: var(--text3); margin-bottom: 1rem; font-weight: 500; }
+  .edu-status { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.7rem; color: var(--teal); background: rgba(20,184,166,0.06); padding: 0.3rem 0.8rem; border-radius: 4px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; }
   .status-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--teal); animation: pulse 2s infinite; }
-  @keyframes pulse { 0%,100%{opacity:1}50%{opacity:0.4} }
+  .interests-row { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+  .interest-chip { display: flex; align-items: center; gap: 0.6rem; padding: 0.8rem 1.4rem; background: var(--card); border: 1px solid var(--border); border-radius: 4px; font-size: 0.9rem; font-weight: 500; transition: all 0.2s; }
 
-  /* ── INTERESTS ── */
-  .interests-row { display: flex; flex-wrap: wrap; gap: 1rem; }
-  .interest-chip {
-    display: flex; align-items: center; gap: 0.6rem;
-    padding: 0.7rem 1.2rem;
-    background: var(--card); border: 1px solid var(--border);
-    border-radius: 50px; font-size: 0.85rem; font-weight: 500;
-    transition: all 0.25s;
-  }
-  .interest-chip:hover { border-color: var(--accent2); transform: scale(1.04); }
-
-  /* ── CONTACT ── */
-  .contact-bg { background: var(--bg2); }
-
-  .contact-wrapper {
-    display: grid; grid-template-columns: 1fr 1fr;
-    gap: 4rem; align-items: start;
-  }
+  /* CONTACT CHANNELS MATRIX */
+  .contact-wrapper { display: grid; grid-template-columns: 1fr 1.1fr; gap: 5rem; align-items: start; }
   .contact-info { display: flex; flex-direction: column; gap: 1rem; }
-  .contact-row {
-    display: flex; align-items: center; gap: 1rem;
-    padding: 1rem 1.4rem;
-    background: var(--card); border: 1px solid var(--card-border);
-    border-radius: 10px; text-decoration: none;
-    color: var(--text); transition: all 0.25s;
-  }
-  .contact-row:hover { border-color: var(--accent); transform: translateX(4px); }
-  .c-icon { font-size: 1.2rem; }
-  .c-label { font-size: 0.7rem; color: var(--text3); text-transform: uppercase; letter-spacing: 0.08em; }
-  .c-val { font-size: 0.9rem; font-weight: 500; margin-top: 0.15rem; }
+  .contact-row { display: flex; align-items: center; gap: 1.5rem; padding: 1.2rem 1.5rem; background: var(--card); border: 1px solid var(--border); border-radius: 6px; text-decoration: none; color: var(--text); transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1); }
+  .contact-row:hover { border-color: var(--text2); transform: translateX(4px); }
+  .c-icon { font-size: 1.2rem; color: var(--text3); }
+  .c-label { font-size: 0.65rem; color: var(--text3); text-transform: uppercase; letter-spacing: 0.1em; font-weight: 600; }
+  .c-val { font-size: 0.95rem; font-weight: 500; margin-top: 0.2rem; }
+  .contact-cta { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 3.5rem; }
+  .cta-headline { font-family: 'Playfair Display', serif; font-size: 1.8rem; font-weight: 500; margin-bottom: 1rem; }
+  .cta-sub { color: var(--text2); font-size: 0.95rem; line-height: 1.7; margin-bottom: 2rem; }
 
-  .contact-cta {
-    background: linear-gradient(135deg, rgba(124,106,245,0.1), rgba(94,234,212,0.05));
-    border: 1px solid var(--card-border); border-radius: 16px;
-    padding: 2.5rem; text-align: center;
-  }
-  .cta-headline {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.6rem; font-weight: 700; margin-bottom: 0.8rem;
-  }
-  .cta-sub { color: var(--text2); font-size: 0.9rem; line-height: 1.7; margin-bottom: 1.5rem; }
-
-  /* ── FOOTER ── */
+  /* ── FOOTER FRAMEWORK ── */
   footer {
-    text-align: center; padding: 2.5rem 5%;
+    text-align: center; padding: 3rem 5%;
     border-top: 1px solid var(--border);
-    color: var(--text3); font-size: 0.8rem;
+    color: var(--text3); font-size: 0.75rem;
+    font-family: 'JetBrains Mono', monospace; letter-spacing: 0.05em;
+    margin-top: auto;
   }
-  footer span { color: var(--accent2); }
+  footer span { color: var(--text2); font-weight: 500; }
 
-  /* ── SCROLL ANIMATIONS ── */
-  .fade-up { opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
-  .fade-up.visible { opacity: 1; transform: none; }
-
-  /* ── RESPONSIVE ── */
-  @media (max-width: 768px) {
-    nav { padding: 1rem 4%; }
-    .nav-links { display: none; }
-    .hero { padding: 6rem 4% 4rem; }
-    .hero-stats { gap: 1.5rem; }
-    .about-grid, .contact-wrapper { grid-template-columns: 1fr; gap: 2rem; }
-    .timeline-item { grid-template-columns: 1fr; }
+  /* RESPONSIVE VIEWPORT BREAKPOINTS */
+  @media (max-width: 1024px) {
+    .hero-grid, .about-grid, .contact-wrapper, .academic-interests-grid { grid-template-columns: 1fr; gap: 3.5rem; }
+    .timeline-item { grid-template-columns: 1fr; gap: 1rem; }
     .tl-date { text-align: left; }
     .timeline-item::before { display: none; }
-    .tl-dot { display: none; }
-    section { padding: 4rem 4%; }
   }
-
-  @media (prefers-reduced-motion: reduce) {
-    .fade-up { transition: none; opacity: 1; transform: none; }
+  @media (max-width: 768px) {
+    nav { padding: 1.2rem 6%; }
+    .nav-links { display: none; }
+    .page-view { padding: 4rem 6%; }
   }
 </style>
 </head>
 <body>
 
-<!-- NAV -->
-<nav>
-  <div class="nav-logo">AG</div>
-  <div class="nav-links">
-    <a href="#about">About</a>
-    <a href="#experience">Experience</a>
-    <a href="#skills">Skills</a>
-    <a href="#contact">Contact</a>
-  </div>
-  <button class="theme-toggle" onclick="toggleTheme()">
-    <span id="theme-icon">☀️</span>
-    <span id="theme-label">Light</span>
-  </button>
-</nav>
+<!-- DYNAMIC CURSOR TRACKING BACKGROUND LIGHT -->
+<div class="cursor-glow" id="js-cursor-glow"></div>
 
-<!-- HERO -->
-<section class="hero" id="home">
-  <div class="hero-orb orb1"></div>
-  <div class="hero-orb orb2"></div>
-  <div class="hero-content">
-    <div class="hero-eyebrow">HR & Compliance Professional</div>
-    <h1 class="hero-name">Ayush<br><span>Gusain</span></h1>
-    <div class="hero-title">Statutory Compliance · Payroll · HR Operations</div>
-    <p class="hero-desc">
-      Results-oriented professional with 2+ years bridging the gap between business operations and legal compliance — from PF & ESI to Labour Welfare Fund, I ensure organisations stay audit-ready.
-    </p>
-    <div class="hero-stats">
-      <div class="stat-item">
-        <div class="stat-num">2+</div>
-        <div class="stat-label">Years Experience</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-num">3</div>
-        <div class="stat-label">Companies</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-num">10+</div>
-        <div class="stat-label">Acts Handled</div>
+<div class="app-container">
+
+  <!-- NAVIGATION INFRASTRUCTURE -->
+  <nav>
+    <div class="nav-logo" onclick="resetToFullView()">AG</div>
+    <div class="nav-links">
+      <a href="#home" id="nav-home" onclick="handleNavigation(event, 'home')">Overview</a>
+      <a href="#about" id="nav-about" onclick="handleNavigation(event, 'about')">Profile</a>
+      <a href="#experience" id="nav-experience" onclick="handleNavigation(event, 'experience')">Journey</a>
+      <a href="#skills" id="nav-skills" onclick="handleNavigation(event, 'skills')">Capabilities</a>
+      <a href="#contact" id="nav-contact" onclick="handleNavigation(event, 'contact')">Connect</a>
+    </div>
+    <button class="theme-toggle" onclick="toggleTheme()">
+      <span id="theme-icon">☀️</span>
+      <span id="theme-label">Light</span>
+    </button>
+  </nav>
+
+  <!-- UNIFIED COMPILATION WRAPPER CONTAINER -->
+  <div class="view-wrapper" id="js-view-wrapper">
+
+    <!-- COMPONENT 1: HERO / OVERVIEW -->
+    <div id="home" class="page-view">
+      <div class="hero-grid">
+        <div class="hero-visual-container">
+          <div class="compliance-matrix-badge">
+            <div class="badge-top">
+              <span class="badge-scale">SCALE // 0.25</span>
+              <span class="badge-icon">⚖️</span>
+            </div>
+            <div class="badge-center">
+              <h3 class="badge-title">AUDIT<br>READY<span>STATUTORY DISCIPLINE</span></h3>
+            </div>
+            <div class="badge-bottom">
+              <div class="badge-status">
+                <div class="badge-dot"></div>
+                <span>SYSTEM SECURE</span>
+              </div>
+              <span class="badge-ver">V2.26</span>
+            </div>
+          </div>
+        </div>
+        <div class="hero-content">
+          <div class="hero-eyebrow">HR & Compliance Professional</div>
+          <h1 class="hero-name">Ayush<br><span>Gusain</span></h1>
+          <div class="hero-title">Statutory Compliance · Payroll · HR Operations</div>
+          <p class="hero-desc">
+            Results-oriented professional with 2+ years bridging the gap between corporate business mechanics and statutory legal compliance frameworks—ensuring seamless operational continuity and comprehensive enterprise protection.
+          </p>
+          <div class="hero-stats">
+            <div>
+              <div class="stat-num">2+</div>
+              <div class="stat-label">Years Horizon</div>
+            </div>
+            <div>
+              <div class="stat-num">10+</div>
+              <div class="stat-label">Acts Governed</div>
+            </div>
+            <div>
+              <div class="stat-num">00</div>
+              <div class="stat-label">Audit Gaps</div>
+            </div>
+          </div>
+          <div class="hero-btns">
+            <a href="#contact" onclick="handleNavigation(event, 'contact')" class="btn-primary">Initiate Contact</a>
+            <a href="#experience" onclick="handleNavigation(event, 'experience')" class="btn-ghost">Examine Journey</a>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="hero-btns">
-      <a href="#contact" class="btn-primary">Get in Touch</a>
-      <a href="#experience" class="btn-ghost">View Journey</a>
-    </div>
-  </div>
-</section>
 
-<div class="divider"></div>
-
-<!-- ABOUT -->
-<section id="about">
-  <div class="section-label">Who I Am</div>
-  <h2 class="section-title">Compliance isn't paperwork.<br>It's protection.</h2>
-  <div class="about-grid">
-    <div class="about-text fade-up">
-      <p>I'm a <strong>HR & Compliance professional</strong>, currently working as a Compliance Executive (Implant) at Air India Express through Talent Traverse HR Tech Pvt. Ltd. in Gurgaon.</p>
-      <p>My work sits at the intersection of <strong>labour law</strong> and <strong>operational HR</strong> — I make statutory compliance seamless, whether that's handling PF allotments, preparing LWF submissions, or maintaining registers that hold up under audit scrutiny.</p>
-      <p>I believe good compliance culture starts with clear processes, accurate documentation, and a team that understands the "why" behind every regulatory requirement.</p>
+    <!-- COMPONENT 2: ABOUT / PROFILE -->
+    <div id="about" class="page-view">
+      <div class="section-header">
+        <div class="section-label">Identity Overview</div>
+        <h2 class="section-title">Compliance isn't paperwork.<br>It's institutional protection.</h2>
+        <p class="section-sub">A precise perspective on corporate operations, operational risk mitigation, and structural health.</p>
+      </div>
+      <div class="about-grid">
+        <div class="about-text">
+          <p>I function as a dedicated <strong>HR & Compliance Specialist</strong>, currently executing responsibilities as a Compliance Executive (Implant) at Air India Express through Talent Traverse HR Tech Pvt. Ltd. within the Gurgaon corporate network.</p>
+          <p>My methodology operates cleanly at the direct intersection of <strong>regulatory labour law</strong> and <strong>tactical HR operations</strong>. I specialize in deploying friction-free compliance infrastructure—spanning total PF management, complete LWF governance, and rigorous data register maintenance designed to withstand structural audits.</p>
+          <p>I believe that robust corporate posture is constructed through explicit validation trails, flawless paperwork standards, and an operational team that completely understands the strategic importance of each framework.</p>
+        </div>
+        <div class="about-details">
+          <div class="detail-row">
+            <div class="detail-icon">📍</div>
+            <div>
+              <div class="detail-label">Base Location</div>
+              <div class="detail-val">Ludhiana, Punjab — 141001</div>
+            </div>
+          </div>
+          <div class="detail-row">
+            <div class="detail-icon">⚡</div>
+            <div>
+              <div class="detail-label">Active Mandate</div>
+              <div class="detail-val">Compliance Executive @ Air India Express</div>
+            </div>
+          </div>
+          <div class="detail-row">
+            <div class="detail-icon">🛡️</div>
+            <div>
+              <div class="detail-label">Core Objective</div>
+              <div class="detail-val">Zero-Gap Operational Security</div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="about-details fade-up">
-      <div class="detail-row">
-        <div class="detail-icon">📍</div>
+
+    <!-- COMPONENT 3: EXPERIENCE / JOURNEY -->
+    <div id="experience" class="page-view">
+      <div class="section-header">
+        <div class="section-label">Career Timeline</div>
+        <h2 class="section-title">Professional Ecosystems<br>and Milestones</h2>
+        <p class="section-sub">Progressive executive mandates spanning heavy manufacturing, global exports, and premium aviation networks.</p>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="tl-date">Mar 2025<br>— Present</div>
+          <div class="tl-body">
+            <div class="tl-company">Talent Traverse HR Tech Pvt. Ltd. · Gurgaon, Haryana</div>
+            <h3 class="tl-role">Compliance Executive</h3>
+            <div class="tl-location">📍 Corporate Implant: Air India Express (AIXL)</div>
+            <p class="tl-desc">Serve as the primary compliance bridge between Air India Express and Talent Traverse, managing end-to-end statutory obligations. Responsible for timely preparation, submission, and record-keeping of LWF, Professional Tax, and all applicable labour law compliances. Coordinate with internal HR and Finance teams to ensure seamless audit readiness and legal conformity across the board.</p>
+            <div class="tl-tags">
+              <span class="tag teal">LWF Governance</span>
+              <span class="tag teal">Professional Tax</span>
+              <span class="tag teal">Labour Enactments</span>
+              <span class="tag gold">Air India Express Group</span>
+            </div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="tl-date">Mar 2024<br>— Feb 2025</div>
+          <div class="tl-body">
+            <div class="tl-company">Ciarr Industries Private Limited · Ludhiana, Punjab</div>
+            <h3 class="tl-role">Human Resources Executive</h3>
+            <div class="tl-location">📍 Manufacturing Hub Operations</div>
+            <p class="tl-desc">Managed complete employee lifecycle from documentation and onboarding to payroll processing and salary disbursement. Handled ESI and PF cases including number allotment and statutory compliance. Took ownership of HR administrative tasks, driving operational efficiency across workforce management functions.</p>
+            <div class="tl-tags">
+              <span class="tag">Payroll Systems</span>
+              <span class="tag">ESI & EPF Architecture</span>
+              <span class="tag">Lifecycle Optimization</span>
+            </div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="tl-date">Mar 2023<br>— Mar 2024</div>
+          <div class="tl-body">
+            <div class="tl-company">Kansal Hosiery Exports · Ludhiana, Punjab</div>
+            <h3 class="tl-role">Human Resources Assistant</h3>
+            <div class="tl-location">📍 Industrial Export Sector</div>
+            <p class="tl-desc">Handled employee joining formalities and full onboarding documentation. Managed ESI and PF registrations ensuring timely statutory number allotment. Maintained confidential employee records and compliance registers, contributing to smooth HR operations and adherence to labour laws and company policies.</p>
+            <div class="tl-tags">
+              <span class="tag">Onboarding Controls</span>
+              <span class="tag">ESI Registration</span>
+              <span class="tag">Register Auditing</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- COMPONENT 4: SKILLS / CAPABILITIES -->
+    <div id="skills" class="page-view">
+      <div class="section-header">
+        <div class="section-label">Competence Grid</div>
+        <h2 class="section-title">Functional Controls &<br>Domain Knowledge</h2>
+        <p class="section-sub">Engineered execution matrices across statutory mechanics, tracking metrics, and administrative frameworks.</p>
+      </div>
+      <div class="skills-container">
         <div>
-          <div class="detail-label">Location</div>
-          <div class="detail-val">Ludhiana, Punjab — 141001</div>
+          <h3 style="font-family:'Playfair Display',serif; font-size:1.5rem; margin-bottom:2rem; font-weight:500;">Statutory Execution Frameworks</h3>
+          <div class="compliance-grid">
+            <div class="compliance-pill"><div class="pill-dot" style="background:var(--accent)"></div>Employees' State Insurance (ESI)</div>
+            <div class="compliance-pill"><div class="pill-dot" style="background:var(--accent2)"></div>Provident Fund (PF / EPF)</div>
+            <div class="compliance-pill"><div class="pill-dot" style="background:var(--teal)"></div>Labour Welfare Fund (LWF)</div>
+            <div class="compliance-pill"><div class="pill-dot" style="background:var(--gold)"></div>Professional Tax (PT)</div>
+            <div class="compliance-pill"><div class="pill-dot" style="background:var(--accent)"></div>Contract Labour (CLRA) Frameworks</div>
+            <div class="compliance-pill"><div class="pill-dot" style="background:var(--teal)"></div>Shops & Establishments Act</div>
+            <div class="compliance-pill"><div class="pill-dot" style="background:var(--gold)"></div>Gratuity Enactments</div>
+            <div class="compliance-pill"><div class="pill-dot" style="background:var(--accent2)"></div>Statutory Audit Infrastructure</div>
+          </div>
         </div>
-      </div>
-      <div class="detail-row">
-        <div class="detail-icon">📞</div>
         <div>
-          <div class="detail-label">Phone</div>
-          <div class="detail-val">+91 87250-14901</div>
+          <h3 style="font-family:'Playfair Display',serif; font-size:1.5rem; margin-bottom:2rem; font-weight:500;">Execution Matrices</h3>
+          <div class="skills-grid">
+            <div class="skill-card">
+              <div class="skill-icon">📋</div>
+              <div class="skill-name">Payroll Architecture</div>
+              <div class="skill-desc">End-to-end calculations, gross-to-net processing adjustments, and secure disbursement reconciliation protocols.</div>
+              <div class="skill-bar"><div class="skill-fill" data-width="90%"></div></div>
+            </div>
+            <div class="skill-card">
+              <div class="skill-icon">⚖️</div>
+              <div class="skill-name">Labour Law Interfacing</div>
+              <div class="skill-desc">Translating regulatory structural alterations into immediate real-world organizational tracking patterns.</div>
+              <div class="skill-bar"><div class="skill-fill" data-width="88%"></div></div>
+            </div>
+            <div class="skill-card">
+              <div class="skill-icon">🗂️</div>
+              <div class="skill-name">Register Infrastructure</div>
+              <div class="skill-desc">Systematic design and curation of clear corporate operational metrics to ensure absolute inspection safety.</div>
+              <div class="skill-bar"><div class="skill-fill" data-width="92%"></div></div>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="detail-row">
-        <div class="detail-icon">✉️</div>
+      
+      <div class="academic-interests-grid">
         <div>
-          <div class="detail-label">Email</div>
-          <div class="detail-val">gusainayush978@gmail.com</div>
+          <h3 style="font-family:'Playfair Display',serif; font-size:1.5rem; margin-bottom:2rem; font-weight:500;">Academic Track</h3>
+          <div class="edu-card">
+            <div class="edu-icon">🎓</div>
+            <div>
+              <h4 class="edu-degree">Bachelor of Commerce (B.Com)</h4>
+              <div class="edu-inst">LPU — Lovely Professional University (Distance Platform)</div>
+              <div class="edu-meta">Timeline // January 2023 – Present</div>
+              <div class="edu-status"><span class="status-dot"></span> In Active Progression</div>
+            </div>
+          </div>
         </div>
-      </div>
-      <div class="detail-row">
-        <div class="detail-icon">🎓</div>
         <div>
-          <div class="detail-label">Education</div>
-          <div class="detail-val">B.Com — LPU Distance (Pursuing)</div>
-        </div>
-      </div>
-      <div class="detail-row">
-        <div class="detail-icon">⚡</div>
-        <div>
-          <div class="detail-label">Current Role</div>
-          <div class="detail-val">Compliance Executive @ Air India Express</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<div class="divider"></div>
-
-<!-- EXPERIENCE -->
-<section id="experience" class="exp-bg">
-  <div class="section-label">Career Journey</div>
-  <h2 class="section-title">Where I've Made<br>an Impact</h2>
-  <p class="section-sub">Three progressive roles across manufacturing and aviation sectors, each expanding my compliance and HR expertise.</p>
-
-  <div class="timeline">
-
-    <!-- Job 3 -->
-    <div class="timeline-item fade-up">
-      <div class="tl-date">Mar 2025<br>— Present</div>
-      <div class="tl-dot"></div>
-      <div class="tl-body">
-        <div class="tl-company">Talent Traverse HR Tech Pvt. Ltd. · Gurgaon, Haryana</div>
-        <div class="tl-role">Compliance Executive</div>
-        <div class="tl-location">📍 Implant at Air India Express (AIXL)</div>
-        <p class="tl-desc">Serve as the primary compliance bridge between Air India Express and Talent Traverse, managing end-to-end statutory obligations. Responsible for timely preparation, submission, and record-keeping of LWF, Professional Tax, and all applicable labour law compliances. Coordinate with internal HR and Finance teams to ensure seamless audit readiness and legal conformity across the board.</p>
-        <div class="tl-tags">
-          <span class="tag teal">LWF</span>
-          <span class="tag teal">Professional Tax</span>
-          <span class="tag teal">Labour Law</span>
-          <span class="tag">Audit Support</span>
-          <span class="tag">Statutory Records</span>
-          <span class="tag gold">Air India Express</span>
+          <h3 style="font-family:'Playfair Display',serif; font-size:1.5rem; margin-bottom:2rem; font-weight:500;">Strategic Pursuits</h3>
+          <div class="interests-row">
+            <div class="interest-chip">🏏 Cricket Analytics</div>
+            <div class="interest-chip">📈 Financial Markets</div>
+            <div class="interest-chip">💪 Performance Conditioning</div>
+            <div class="interest-chip">✈️ Topography Travel</div>
+          </div>
         </div>
       </div>
     </div>
 
-    <!-- Job 2 -->
-    <div class="timeline-item fade-up">
-      <div class="tl-date">Mar 2024<br>— Feb 2025</div>
-      <div class="tl-dot"></div>
-      <div class="tl-body">
-        <div class="tl-company">Ciarr Industries Private Limited · Ludhiana, Punjab</div>
-        <div class="tl-role">Human Resources Executive</div>
-        <div class="tl-location">📍 Ludhiana, Punjab</div>
-        <p class="tl-desc">Managed complete employee lifecycle from documentation and onboarding to payroll processing and salary disbursement. Handled ESI and PF cases including number allotment and statutory compliance. Took ownership of HR administrative tasks, driving operational efficiency across workforce management functions.</p>
-        <div class="tl-tags">
-          <span class="tag">Payroll Processing</span>
-          <span class="tag">ESI & PF</span>
-          <span class="tag">Onboarding</span>
-          <span class="tag teal">Salary Disbursement</span>
-          <span class="tag">Documentation</span>
-        </div>
+    <!-- COMPONENT 5: CONTACT / CONNECT -->
+    <div id="contact" class="page-view">
+      <div class="section-header">
+        <div class="section-label">Communication Node</div>
+        <h2 class="section-title">Open Channels</h2>
+        <p class="section-sub">Establish rapid contact for operational mandates, strategic hiring configurations, or compliance partnerships.</p>
       </div>
-    </div>
-
-    <!-- Job 1 -->
-    <div class="timeline-item fade-up">
-      <div class="tl-date">Mar 2023<br>— Mar 2024</div>
-      <div class="tl-dot"></div>
-      <div class="tl-body">
-        <div class="tl-company">Kansal Hosiery Exports · Ludhiana, Punjab</div>
-        <div class="tl-role">Human Resources Assistant</div>
-        <div class="tl-location">📍 Ludhiana, Punjab</div>
-        <p class="tl-desc">Handled employee joining formalities and full onboarding documentation. Managed ESI and PF registrations ensuring timely statutory number allotment. Maintained confidential employee records and compliance registers, contributing to smooth HR operations and adherence to labour laws and company policies.</p>
-        <div class="tl-tags">
-          <span class="tag">Joining Formalities</span>
-          <span class="tag">ESI Registration</span>
-          <span class="tag">PF Registration</span>
-          <span class="tag teal">Compliance Registers</span>
-          <span class="tag">Employee Records</span>
+      <div class="contact-wrapper">
+        <div class="contact-info">
+          <a href="tel:+918725014901" class="contact-row">
+            <div class="c-icon">📞</div>
+            <div>
+              <div class="c-label">Telecom Link</div>
+              <div class="c-val">+91 87250-14901</div>
+            </div>
+          </a>
+          <a href="mailto:gusainayush978@gmail.com" class="contact-row">
+            <div class="c-icon">✉️</div>
+            <div>
+              <div class="c-label">Digital Transmission</div>
+              <div class="c-val">gusainayush978@gmail.com</div>
+            </div>
+          </a>
+          <div class="contact-row" style="cursor:default">
+            <div class="c-icon">📍</div>
+            <div>
+              <div class="c-label">Operations HQ Base</div>
+              <div class="c-val">Z-Block, Rishi Nagar, Ludhiana — 141001</div>
+            </div>
+          </div>
+        </div>
+        <div class="contact-cta">
+          <h3 class="cta-headline">Mandate Availability</h3>
+          <p class="cta-sub">Reviewing mid-to-senior organizational tracking integrations within complex commercial hub infrastructures.</p>
+          <a href="mailto:gusainayush978@gmail.com" class="btn-primary">Initiate Messaging</a>
         </div>
       </div>
     </div>
 
   </div>
-</section>
 
-<div class="divider"></div>
+  <!-- STABLE FOOTER FOOTPRINT -->
+  <footer>
+    <p>Corporate Dossier Architecture & Built For <span>Ayush Gusain</span> · © 2026</p>
+  </footer>
 
-<!-- COMPLIANCE EXPERTISE -->
-<section class="compliance-bg" id="compliance">
-  <div class="section-label">Domain Expertise</div>
-  <h2 class="section-title">Statutory Acts &<br>Compliance Areas</h2>
-  <p class="section-sub">Hands-on experience across the key labour law frameworks that govern Indian workplaces.</p>
-
-  <div class="compliance-grid fade-up">
-    <div class="compliance-pill"><div class="pill-dot" style="background:#7c6af5"></div>Employees' State Insurance (ESI)</div>
-    <div class="compliance-pill"><div class="pill-dot" style="background:#a78bfa"></div>Provident Fund (PF / EPF)</div>
-    <div class="compliance-pill"><div class="pill-dot" style="background:#5eead4"></div>Labour Welfare Fund (LWF)</div>
-    <div class="compliance-pill"><div class="pill-dot" style="background:#f4c87a"></div>Professional Tax (PT)</div>
-    <div class="compliance-pill"><div class="pill-dot" style="background:#7c6af5"></div>Contract Labour (CLRA)</div>
-    <div class="compliance-pill"><div class="pill-dot" style="background:#a78bfa"></div>Shops & Establishments Act (S&E)</div>
-    <div class="compliance-pill"><div class="pill-dot" style="background:#5eead4"></div>Gratuity Act</div>
-    <div class="compliance-pill"><div class="pill-dot" style="background:#f4c87a"></div>Payroll Processing & Disbursement</div>
-    <div class="compliance-pill"><div class="pill-dot" style="background:#7c6af5"></div>Statutory Register Maintenance</div>
-    <div class="compliance-pill"><div class="pill-dot" style="background:#5eead4"></div>Audit Support & Documentation</div>
-    <div class="compliance-pill"><div class="pill-dot" style="background:#a78bfa"></div>Onboarding & Joining Formalities</div>
-    <div class="compliance-pill"><div class="pill-dot" style="background:#f4c87a"></div>HR Operations Management</div>
-  </div>
-</section>
-
-<div class="divider"></div>
-
-<!-- SKILLS -->
-<section id="skills">
-  <div class="section-label">Capabilities</div>
-  <h2 class="section-title">Skills That Drive<br>Results</h2>
-
-  <div class="skills-grid">
-    <div class="skill-card fade-up">
-      <div class="skill-icon">📋</div>
-      <div class="skill-name">Payroll & Salary Management</div>
-      <div class="skill-desc">End-to-end payroll processing with accuracy and compliance, ensuring timely disbursement and statutory deductions.</div>
-      <div class="skill-bar"><div class="skill-fill" style="width:90%"></div></div>
-    </div>
-    <div class="skill-card fade-up">
-      <div class="skill-icon">⚖️</div>
-      <div class="skill-name">Labour Law Compliance</div>
-      <div class="skill-desc">Deep working knowledge of ESI, PF, LWF, PT, CLRA, S&E, and Gratuity Acts with practical implementation experience.</div>
-      <div class="skill-bar"><div class="skill-fill" style="width:88%"></div></div>
-    </div>
-    <div class="skill-card fade-up">
-      <div class="skill-icon">🤝</div>
-      <div class="skill-name">Onboarding & Joining</div>
-      <div class="skill-desc">Structured onboarding processes covering documentation, statutory registrations, and employee orientation.</div>
-      <div class="skill-bar"><div class="skill-fill" style="width:85%"></div></div>
-    </div>
-    <div class="skill-card fade-up">
-      <div class="skill-icon">🗂️</div>
-      <div class="skill-name">Record & Register Management</div>
-      <div class="skill-desc">Meticulous maintenance of statutory registers and employee records to withstand internal and external audits.</div>
-      <div class="skill-bar"><div class="skill-fill" style="width:92%"></div></div>
-    </div>
-    <div class="skill-card fade-up">
-      <div class="skill-icon">💬</div>
-      <div class="skill-name">Communication & Coordination</div>
-      <div class="skill-desc">Effective liaison between HR, Finance, and external compliance agencies. Comfortable with public speaking and stakeholder management.</div>
-      <div class="skill-bar"><div class="skill-fill" style="width:80%"></div></div>
-    </div>
-    <div class="skill-card fade-up">
-      <div class="skill-icon">🔍</div>
-      <div class="skill-name">Audit Readiness</div>
-      <div class="skill-desc">Proactively preparing documentation and compliance checks to ensure zero-gap audit responses.</div>
-      <div class="skill-bar"><div class="skill-fill" style="width:87%"></div></div>
-    </div>
-  </div>
-</section>
-
-<div class="divider"></div>
-
-<!-- EDUCATION -->
-<section id="education">
-  <div class="section-label">Education</div>
-  <h2 class="section-title">Academic Foundation</h2>
-  <div class="fade-up">
-    <div class="edu-card">
-      <div class="edu-icon">🎓</div>
-      <div>
-        <div class="edu-degree">Bachelor of Commerce (B.Com)</div>
-        <div class="edu-inst">LPU — Lovely Professional University (Distance)</div>
-        <div class="edu-meta">Ludhiana, Punjab · January 2023 – Present</div>
-        <div class="edu-status"><span class="status-dot"></span> Currently Pursuing</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<div class="divider"></div>
-
-<!-- INTERESTS -->
-<section>
-  <div class="section-label">Beyond Work</div>
-  <h2 class="section-title">Personal Interests</h2>
-  <div class="interests-row fade-up">
-    <div class="interest-chip">🏏 Cricket</div>
-    <div class="interest-chip">📈 Financial Markets</div>
-    <div class="interest-chip">💪 Personal Fitness</div>
-    <div class="interest-chip">🧠 Learning New Skills</div>
-    <div class="interest-chip">✈️ Travel</div>
-  </div>
-</section>
-
-<div class="divider"></div>
-
-<!-- CONTACT -->
-<section id="contact" class="contact-bg">
-  <div class="section-label">Get In Touch</div>
-  <h2 class="section-title">Let's Connect</h2>
-  <div class="contact-wrapper">
-    <div class="contact-info fade-up">
-      <a href="tel:+918725014901" class="contact-row">
-        <div class="c-icon">📞</div>
-        <div>
-          <div class="c-label">Phone</div>
-          <div class="c-val">+91 87250-14901</div>
-        </div>
-      </a>
-      <a href="mailto:gusainayush978@gmail.com" class="contact-row">
-        <div class="c-icon">✉️</div>
-        <div>
-          <div class="c-label">Email</div>
-          <div class="c-val">gusainayush978@gmail.com</div>
-        </div>
-      </a>
-      <div class="contact-row" style="cursor:default">
-        <div class="c-icon">📍</div>
-        <div>
-          <div class="c-label">Location</div>
-          <div class="c-val">Z-Block, Rishi Nagar, Ludhiana — 141001</div>
-        </div>
-      </div>
-      <div class="contact-row" style="cursor:default">
-        <div class="c-icon">🏢</div>
-        <div>
-          <div class="c-label">Current Company</div>
-          <div class="c-val">Talent Traverse HR Tech · Gurgaon</div>
-        </div>
-      </div>
-    </div>
-    <div class="contact-cta fade-up">
-      <div class="cta-headline">Open to Opportunities</div>
-      <p class="cta-sub">Whether you're looking for a dedicated compliance professional or need expert HR support, I'd love to hear from you. Let's build something compliant and efficient together.</p>
-      <a href="mailto:gusainayush978@gmail.com" class="btn-primary">Send a Message →</a>
-    </div>
-  </div>
-</section>
-
-<!-- FOOTER -->
-<footer>
-  <p>Designed & built for <span>Ayush Gusain</span> · HR & Compliance Professional · © 2025</p>
-</footer>
+</div>
 
 <script>
-  // Theme toggle
-  function toggleTheme() {
-    const html = document.documentElement;
-    const isDark = html.getAttribute('data-theme') === 'dark';
-    html.setAttribute('data-theme', isDark ? 'light' : 'dark');
-    document.getElementById('theme-icon').textContent = isDark ? '🌙' : '☀️';
-    document.getElementById('theme-label').textContent = isDark ? 'Dark' : 'Light';
+  const viewWrapper = document.getElementById('js-view-wrapper');
+  const auraGlowNode = document.getElementById('js-cursor-glow');
+
+  // CORE ROUTING ENGINE: Toggles between continuous scrolling and clean single-view isolation
+  function handleNavigation(event, targetId) {
+    if (event) event.preventDefault();
+
+    // Toggle styling container modifications
+    viewWrapper.classList.add('isolated-active');
+
+    // Clean out existing highlight configurations
+    document.querySelectorAll('.page-view').forEach(view => view.classList.remove('isolated-focus'));
+    document.querySelectorAll('.nav-links a').forEach(link => link.classList.remove('active-nav-link'));
+
+    // Isolate targeting component node explicitly
+    const TargetElement = document.getElementById(targetId);
+    if (TargetElement) {
+      TargetElement.classList.add('isolated-focus');
+    }
+
+    // Affix interactive class indicators to top nav items
+    const TargetLink = document.getElementById('nav-' + targetId);
+    if (TargetLink) {
+      TargetLink.classList.add('active-nav-link');
+    }
+
+    // Fire data-filling operations smoothly if target matches skill metric criteria
+    if (targetId === 'skills') {
+      setTimeout(() => {
+        document.querySelectorAll('.skill-fill').forEach(fill => {
+          fill.style.width = fill.getAttribute('data-width');
+        });
+      }, 100);
+    } else {
+      document.querySelectorAll('.skill-fill').forEach(fill => fill.style.width = '0');
+    }
+
+    // Reset layout height boundaries back to viewport ceiling seamlessly
+    window.scrollTo({ top: 0, behavior: 'instant' });
+    
+    // Set explicit address hashes cleanly
+    history.pushState(null, null, '#' + targetId);
   }
 
-  // Scroll animations
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.classList.add('visible');
-        // Animate skill bars
-        const fills = e.target.querySelectorAll('.skill-fill');
-        fills.forEach(f => {
-          const w = f.style.width;
-          f.style.width = '0';
-          setTimeout(() => f.style.width = w, 100);
-        });
-      }
+  // REVERT INFRASTRUCTURE: Triggered when user selects the Logo node
+  function resetToFullView() {
+    viewWrapper.classList.remove('isolated-active');
+    
+    document.querySelectorAll('.page-view').forEach(view => view.classList.remove('isolated-focus'));
+    document.querySelectorAll('.nav-links a').forEach(link => link.classList.remove('active-nav-link'));
+    
+    // Auto-fill metric bars dynamically on default standard scrolling behavior
+    document.querySelectorAll('.skill-fill').forEach(fill => {
+      fill.style.width = fill.getAttribute('data-width');
     });
-  }, { threshold: 0.12 });
 
-  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    history.pushState(null, null, ' ');
+  }
+
+  // DYNAMIC ADAPTIVE BACKDROP LIGHTING CONTROLLER
+  window.addEventListener('mousemove', (e) => {
+    auraGlowNode.style.opacity = '1';
+    auraGlowNode.style.left = e.clientX + 'px';
+    auraGlowNode.style.top = e.clientY + 'px';
+  });
+
+  window.addEventListener('mouseout', () => {
+    auraGlowNode.style.opacity = '0';
+  });
+
+  // PALETTE MANAGER SYSTEM
+  function toggleTheme() {
+    const rootElement = document.documentElement;
+    const isCurrentlyDark = rootElement.getAttribute('data-theme') === 'dark';
+    
+    rootElement.setAttribute('data-theme', isCurrentlyDark ? 'light' : 'dark');
+    document.getElementById('theme-icon').textContent = isCurrentlyDark ? '🌙' : '☀️';
+    document.getElementById('theme-label').textContent = isCurrentlyDark ? 'Dark' : 'Light';
+  }
+
+  // ROUTER INITIALIZATION SNAP CONTROLLERS
+  window.addEventListener('DOMContentLoaded', () => {
+    const activeRouteHash = window.location.hash.replace('#', '');
+    const validRegistrationViews = ['home', 'about', 'experience', 'skills', 'contact'];
+    
+    if (activeRouteHash && validRegistrationViews.includes(activeRouteHash)) {
+      handleNavigation(null, activeRouteHash);
+    } else {
+      // By default, animate skill bars on basic vertical layout rendering paths
+      document.querySelectorAll('.skill-fill').forEach(fill => {
+        fill.style.width = fill.getAttribute('data-width');
+      });
+    }
+  });
 </script>
 </body>
 </html>
